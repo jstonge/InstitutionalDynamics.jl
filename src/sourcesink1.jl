@@ -128,7 +128,7 @@ function main()
     else
       
       db = SQLite.DB(args["db"])
-      con = SQLite.DBInterface.execute(db, """SELECT * from sourcesink1 LIMIT $(args["O"]), $(args["L"])""") |> DataFrames.DataFrame
+      con = SQLite.DBInterface.execute(db, """SELECT * from sourcesink1 LIMIT $(args["O"]), $(args["L"])""") |> DataFrames.DataFrames.DataFrame
     
       for row in eachrow(con)
         β = row["beta"]
@@ -145,7 +145,10 @@ function main()
     end  
 end
 
-main()
+if abspath(PROGRAM_FILE) == @__FILE__
+  main()
+end
+
 
 # prototyping -------------------------------------------------------------------------------
 
