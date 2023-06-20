@@ -140,7 +140,7 @@ function main()
       
         p = [β,  γ, ρ, b, c, μ]
         sol = run_source_sink(p)    
-        write_sol2txt("sourcesink1_$(join(p, "_")).txt", sol) 
+        write_sol2txt("$(args["o"])/sourcesink1_$(join(p, "_")).txt", sol) 
       end
     end  
 end
