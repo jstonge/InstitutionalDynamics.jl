@@ -1,0 +1,160 @@
+---
+title: "Call for action and timescale separation in the co-evolution of contagions and institutions"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    logo: vermont_CSDS.png
+    css: style.css
+    footer: "Netsci 2023"
+    mainfont: "SF Pro"
+editor: visual
+---
+
+
+## Counter-intuitive claim: More spread can help 
+
+* Think about the models you know. How often this is the case theat increasing transmission rate lead to lower equilibrium prevalence. 
+* But we know this is happenning:
+  * Disease A don't spread that much. We don't really care.
+  * Disease B spread so we are, we'll do something about it. 
+* Public health we'll intervene, or mods on subreddits for misinformation.
+
+::: {.notes}
+Duration: 1m
+Cumulative time: 1m
+:::
+
+## Soapboax: higher-order networks are cool.
+
+* During the pandemic, we like to think about how network structure change (tracing studies where people cut ties)
+* But higher-order networks let us study how norms and institutions changes implemented at group-level (here perhaps workplace or city) impact our interactions.
+
+::: {.notes}
+This slide could go at the end too.
+
+Duration: .5m
+Cumulative time: 1.5m
+:::
+
+
+## [Group-based model]{.important} [with policy selection]{.strong-fade} of negative contagion
+
+![](schema2b.svg){fig-align="center" width=1200}
+
+:::: {style="text-align: center;"}
+We keep track of infected $i$ in fixed-size group.
+:::
+
+::: {.notes}
+Duration: 1.5m
+Cumulative time: 3m
+:::
+
+
+## [Group-based model]{.fade} [with policy selection]{.important} of negative contagion
+
+![](schema2.svg){fig-align="center" width=1200}
+
+:::: {style="text-align: center;"}
+The rate of infection is conditional on institutional level $\ell$
+:::
+
+::: {.notes}
+[$\rightarrow$ Perhaps give example of the different regimes here]{.not-as-small}
+
+Duration: 1.5m
+Cumulative time: 4.5m
+:::
+
+## The Math
+
+[\begin{equation} \label{eq:diffusion_me}
+    \begin{split}
+        \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} &= \beta_0\ell^{-\alpha}\left[(i-1)+\mathbin{\color{blue}{R}}\right]\left(n-i+1\right)G_{i-1,\ell} \\
+        &- \beta_0\ell^{-\alpha}\left(i+\mathbin{\color{blue}{R}}\right)\left(n-i\right)G_{i,\ell} \\
+        &+ \gamma\left(i+1\right)G_{i+1,\ell} - \gamma i G_{i,\ell} \; . 
+      
+      \newline
+      \newline
+      
+      \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} &= \eta \left[G_{i,\ell-1}\left(Z_\ell Z_{\ell-1}^{-1} + \mu\right) + G_{i,\ell+1}\left(Z_\ell Z_{\ell+1}^{-1}+\mu\right) \right] \notag \\
+                                              &- \eta \left(Z_{\ell - 1}Z_{\ell}^{-1}+Z_{\ell+1}Z_{\ell}^{-1} + 2\mu\right)G_{i,\ell}\; . 
+    \newline
+    \newline
+    
+    \end{split}
+\end{equation}]{.math-size}
+
+
+[where $Z_\ell = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.not-as-small} [and $\mathbin{\color{blue}{R}} = \rho \sum _{i,\ell} i G_{i,\ell}$]{.not-as-small}
+
+
+::: {.notes}
+Duration: 1.5m
+Cumulative time: 6m
+:::
+
+## [Evolutionary dynamics]{.important} [and parameter localization]{.strong-fade}
+
+![](dashboard1a.svg){fig-align="center" width=1200}
+
+
+::: {.notes}
+Duration: 2m
+Cumulative time: 8m
+:::
+
+
+## Time evolution [and parameter localization]{.important}
+
+![](dashboard1b.svg){fig-align="center" width=1200}
+
+## Institutional free-riding
+![](free_riding_vs_beta_eta_005.svg){fig-align="center" width=1200}
+
+::: {.notes}
+Duration: 1m
+Cumulative time: 9m
+:::
+
+## Main result: Call for action
+
+![](call_for_action.svg){fig-align="center" width=1200}
+
+
+::: {.notes}
+Duration: 3m
+Cumulative time: 12m
+:::
+
+
+## Wrap up
+
+::: {.notes}
+Duration: .5m
+Cumulative time: 12.5m
+:::
+
+## Thanks
+
+Put arxiv. Make it pretty.
+
+
+<!-- ########################### Thrash ############################# -->
+
+<!-- ## Embedding D3JS plots
+
+```{=html}
+<iframe width="780" height="500" src="https://observablehq.com/embed/@d3/sortable-bar-chart?cell=viewof+order&cell=chart" title="Quarto Documentation"></iframe>
+``` -->
+
+<!-- ## Embedding codeSandbox
+
+```{=html}
+<iframe src="https://codesandbox.io/embed/observable-plot-forked-uwz97?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style="width:1109px; height:800px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Observable Plot in React"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+``` -->

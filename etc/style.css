@@ -1,0 +1,41 @@
+.reveal .slide-logo {
+  height: 200px !important;
+  width: 200px!important;
+  opacity: 0.4;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.reveal pre.sourceCode code {
+  /* height: 500px; */
+  max-height: 700px;
+  max-width: 2000px;
+}
+
+.important {
+  color: maroon;
+}
+
+.strong-fade {
+  font-weight: lighter;
+  color: lightgrey;
+  opacity: 0.5;
+}
+
+.weak-fade {
+  font-weight: lighter;
+  color: black;
+  opacity: 0.9;
+}
+
+.smaller {
+  font-size: 20px;
+}
+
+.not-as-small {
+  font-size: 26px;
+}
+
+.math-size {
+  font-size: 35px;
+}

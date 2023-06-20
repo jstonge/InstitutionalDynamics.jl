@@ -182,23 +182,53 @@ end
 
 # prototyping -------------------------------------------------------------------------------
 
+using LaTeXStrings
+using Plots
 
+params_name = "β", "ξ", "α", "γ", "ρ", "η", "b", "c", "μ"
 
-# params_name = "β", "ξ", "α", "γ", "ρ", "η", "b", "c", "μ"
+lvl_1_inf = false
+perc_inf = 0.001
+p = [0.1, 1., 1., 1., 0.1, 0.05, -1, 1., 0.0001]  # β, ξ, α, γ, ρ, η, b, c, μ
+sol = run_source_sink2(p, perc_inf = perc_inf, lvl_1_inf=lvl_1_inf)
+res, res_prop = parse_sol(sol)
+t_max = 9999
 
-# lvl_1_inf = false
-# perc_inf = 0.001
-# p = [0.1, 1., 1., 1., 0.1, 0.05, -1, 1., 0.0001]  # β, ξ, α, γ, ρ, η, b, c, μ
-# sol = run_source_sink2(p, perc_inf = perc_inf, lvl_1_inf=lvl_1_inf)
-# res, res_prop = parse_sol(sol)
-# t_max = 9999
-# global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
-# plot([res[l][1:t_max] for l=1:L], xscale=:log, ylabel = L"\textrm{prevalence}", labels = " " .* string.([1:L;]'),
-#       width = 3., legendtitle = L"\textrm{level}", palette = palette(:Reds)[3:9], legend=:left,
-#       xticks = 10 .^ [0,1,2,3,4]);
-# plot!(1:t_max, global_freq[1:t_max], width = 3, color =:black, ls =:dash, label = L"\textrm{global}",
-#       title = join([params_name[i] * "=" * string.(p)[i] for i in 1:length(params_name)], "  "))
-# plot([res_prop[l][1:t_max] for l=1:L], xscale=:log, ylabel = L"\textrm{level\ proportion}", labels = " " .* string.([1:L;]'),
-#       width = 3., legendtitle = L"\textrm{level}", palette = palette(:Blues)[3:9], legend=:left,
-#       title = join([params_name[i] * "=" * string.(p)[i] for i in 1:length(params_name)], "  "),
-#       xticks = 10 .^ [0,1,2,3,4])
+function plot_value(res)
+  L = length(res)
+  xval = [res[l][1:t_max] for l=1:L]
+  plot(xval, 
+    xscale=:log, 
+    # ylabel = L"\textrm{prevalence}", 
+    labels = " " .* string.([1:L;]'),
+    width = 3., 
+    legendtitle = L"\textrm{level}",
+    palette = palette(:Reds)[3:9], 
+    legend=:left,
+    xticks = 10 .^ [0,1,2,3,4]
+  );
+  
+  global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
+  
+  plot!(1:t_max, global_freq[1:t_max], width = 3,
+        color =:black, ls =:dash, label = L"\textrm{global}",
+        title = join([params_name[i] * "=" * string.(p)[i] for i in 1:length(params_name)], "  "))
+  
+end
+
+plot_value(res)
+
+function plot_value_prop(res_prop)
+  L = length(res)
+  xval = [res_prop[l][1:t_max] for l=1:L]
+  plot(xval, xscale=:log, ylabel = L"\textrm{level\ proportion}",
+       labels = " " .* string.([1:L;]'),
+       width = 3., 
+       legendtitle = L"\textrm{level}", 
+       palette = palette(:Blues)[3:9], 
+       legend=:outerright,
+       title = join([params_name[i] * "=" * string.(p)[i] for i in 1:length(params_name)], "  "),
+       xticks = 10 .^ [0,1,2,3,4])
+end
+
+plot_value_prop(res_prop)
