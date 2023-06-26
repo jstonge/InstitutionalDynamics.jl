@@ -132,16 +132,6 @@ end
   return OrdinaryDiffEq.solve(prob, OrdinaryDiffEq.Tsit5(), saveat = 0.1, reltol=1e-8, abstol=1e-8)
 end
 
-@everywhere function get_Iℓ(β, ξ, α, γ, ρ, η, b, c, μ, L, t_max, lvl_1_inf)
-  p = [β, ξ, α, γ, ρ, η, b, c, μ]
-  sol = run_source_sink2(p, L=L, lvl_1_inf=lvl_1_inf)
-  res, res_prop = parse_sol(sol)
-
-  Iℓ = [res[ℓ][end] for ℓ in 1:L]
-  Pℓ = [res_prop[ℓ][end] for ℓ in 1:L]
-  return Iℓ, Pℓ
-end
-
 function get_fitness_evo(sol)
   L = length(sol.u[1].x)
   n = length(sol.u[1].x[1])
@@ -153,6 +143,7 @@ function get_fitness_evo(sol)
   end
   return Z
 end
+
 
 function main()
   args = parse_commandline()
