@@ -36,6 +36,8 @@ function write_sol2txt(path, sol)
     end
 end
 
+unzip(a) = map(x->getfield.(a, x), fieldnames(eltype(a)))
+create_cache() = isdir(".cache") ? nothing : mkdir(".cache")
 
 # processing_sol1(x, n) = sum((collect(0:(n-1)) / n) .* x) / sum(x) 
 
