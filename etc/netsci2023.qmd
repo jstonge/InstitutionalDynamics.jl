@@ -91,7 +91,7 @@ Cumulative time: 4.5m
 
 ::: {.notes}
 Duration: 1.5m
-Cumulative time: 6m
+Cumulative time: 5m
 :::
 
 ## [Evolutionary dynamics]{.important} [and parameter localization]{.strong-fade}
@@ -105,34 +105,93 @@ Cumulative time: 8m
 :::
 
 
-## Time evolution [and parameter localization]{.important}
+## Evolutionary dynamics [and parameter localization]{.important}
 
 ![](dashboard1b.svg){fig-align="center" width=1200}
 
-## Institutional free-riding
-![](free_riding_vs_beta_eta_005.svg){fig-align="center" width=1200}
+## Institutional free-riding is bad
+::: {layout="[[-1], [1], [-1]]"}
+![](freeRidingA.svg){fig-align="center" width=1200}
+:::
+
+:::: {style="text-align: center;"}
+Prevalence for varying level when all levels exist
+:::
 
 ::: {.notes}
 Duration: 1m
 Cumulative time: 9m
+
+ * Look at the numerator. 
+ * If $I\_ell > \tilde{I}_\ell$, your infection rate at equilibrium is higher when other people are doing at what you do. For $\ell=4$, it stays at $1$ because you don't have infection.
+ * If $I\_ell < \tilde{I}_\ell$, your infection rate at equilibrium is . When close to $-1$, institutions in the systems are helping you.
+ * Free-riding is when lower institutions are doing better in presence of higher institutions, than by themselves. Inversely, higher level get screwed. Lower levels always exploit, higher levels always get exploited.
+ * The point of waiting is to reduce the lower levels, lower levels can observe fitness of $\ell+1$ and copy them. Free-riding is bad, there are groups who are not implementing strong institutions thereby letting the infection spread.
+ * We need to find a regime where higher institutions are favored...
+ * to do that, the timescale at which each other copy each other needs to be slow...
+ * This brings us to the call for action...
 :::
 
-## Main result: Call for action
+## Institutional free-riding
+:::: {layout="[[-1], [1], [-1]]"}
+![](freeRidingB.svg){fig-align="center" width=1200}
+:::
 
-![](call_for_action.svg){fig-align="center" width=1200}
+:::: {style="text-align: center;"}
+Prevalence for varying level when only level $\ell$ exists
+:::
 
+## Institutional free-riding
+::: {layout="[[-1], [1], [-1]]"}
+![](freeRidingC.svg){fig-align="center" width=1200}
+:::
+
+:::: {style="text-align: center;"}
+Normalized view showing institutional free-riding; $y < 0$ means $\ell$ free-rides.
+:::
+
+
+## Institutional free-riding
+::: {layout="[[-1], [1], [-1]]"}
+![](freeRidingD.svg){fig-align="center" width=1200}
+:::
+
+:::: {style="text-align: center;"}
+Normalized view showing institutional free-riding; $y < 0$ means $\ell$ free-rides.
+:::
+
+
+## Stronger institutions being called upon
+
+![](call_for_action2.svg){fig-align="center" width=1200}
+
+::: {style="text-align: center;"}
+But what is a call for action? An impetus?!
+
+"Big learning curve for weaker institution". Copying more early on seems not to worth it because it takes time. 
+:::
 
 ::: {.notes}
 Duration: 3m
 Cumulative time: 12m
+
+* \eta gives characteristic time of copying. 1/\eta gives the characteristic scale for inst. to copy or not. Small eta means that groups have time to "flattened the curve", give it enough time 
+* Fitness of higher inst can go up when small enough eta, giving time to other, weaker institutions to copy them.
+* Slow institutions are “called upon” to intervene only in specific regimes of the transmission rate, whereas faster institutions tend to explore institutional actions on their own in all regimes.
+* Slow institutions feel compelled to take action when coupled with sufficiently higher transmission rates that necessitate institutional responses
 :::
 
 
-## Wrap up
+## Food for thought
+
+ * Slowing the imitation rate dynamics can be benefitial because it let weaker institutions to copy them.
+ * But we can't engineer that. How can we get closer to that scenario? 
+ * What do we say to policy makers?
 
 ::: {.notes}
 Duration: .5m
 Cumulative time: 12.5m
+
 :::
 
 ## Thanks
