@@ -124,7 +124,7 @@ Cumulative time: 9m
 
  * Look at the numerator. 
  * If $I\_ell > \tilde{I}_\ell$, your infection rate at equilibrium is higher when other people are doing at what you do. For $\ell=4$, it stays at $1$ because you don't have infection.
- * If $I\_ell < \tilde{I}_\ell$, your infection rate at equilibrium is . When close to $-1$, institutions in the systems are helping you.
+ * If $I_\ell < \tilde{I}_\ell$, your infection rate at equilibrium is . When close to $-1$, institutions in the systems are helping you.
  * Free-riding is when lower institutions are doing better in presence of higher institutions, than by themselves. Inversely, higher level get screwed. Lower levels always exploit, higher levels always get exploited.
  * The point of waiting is to reduce the lower levels, lower levels can observe fitness of $\ell+1$ and copy them. Free-riding is bad, there are groups who are not implementing strong institutions thereby letting the infection spread.
  * We need to find a regime where higher institutions are favored...

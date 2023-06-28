@@ -1,4 +1,44 @@
-<svg class="plot-d6a7b5" fill="currentColor" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" width="450" height="350" viewBox="0 0 450 350" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>.plot-d6a7b5 {
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="plot-d6a7b5"
+   fill="currentColor"
+   font-family="system-ui, sans-serif"
+   font-size="10"
+   text-anchor="middle"
+   width="450"
+   height="350"
+   viewBox="0 0 450 350"
+   version="1.1"
+   id="svg141573"
+   sodipodi:docname="call_for_action2.svg"
+   inkscape:version="1.2.2 (1:1.2.2+202305151914+b0a8486541)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs141577" />
+  <sodipodi:namedview
+     id="namedview141575"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.5"
+     inkscape:cx="194"
+     inkscape:cy="175.2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg141573" />
+  <style
+     id="style141477">.plot-d6a7b5 {
   display: block;
   background: white;
   height: auto;
@@ -8,4 +48,229 @@
 .plot-d6a7b5 text,
 .plot-d6a7b5 tspan {
   white-space: pre;
-}</style><g aria-label="rule" stroke="currentColor"><line x1="50" x2="430" y1="315" y2="315"/></g><g aria-label="y-axis tick" fill="none" stroke="currentColor"><path transform="translate(50,315)" d="M0,0L-6,0"/><path transform="translate(50,249.5099317973206)" d="M0,0L-6,0"/><path transform="translate(50,184.0198635946412)" d="M0,0L-6,0"/><path transform="translate(50,118.52979539196185)" d="M0,0L-6,0"/><path transform="translate(50,53.03972718928246)" d="M0,0L-6,0"/></g><g aria-label="y-axis tick label" text-anchor="end" font-variant="tabular-nums" transform="translate(-9,0)"><text y="0.32em" transform="translate(50,315)">0.00</text><text y="0.32em" transform="translate(50,249.5099317973206)">0.05</text><text y="0.32em" transform="translate(50,184.0198635946412)">0.10</text><text y="0.32em" transform="translate(50,118.52979539196185)">0.15</text><text y="0.32em" transform="translate(50,53.03972718928246)">0.20</text></g><g aria-label="y-axis label" transform="translate(-47,0)"><text y="0.71em" transform="translate(50,167.5) rotate(-90)">equilibrium prevalence</text></g><g aria-label="x-axis tick" fill="none" stroke="currentColor"><path transform="translate(50,315)" d="M0,0L0,6"/><path transform="translate(119.0909090909091,315)" d="M0,0L0,6"/><path transform="translate(188.1818181818182,315)" d="M0,0L0,6"/><path transform="translate(257.27272727272725,315)" d="M0,0L0,6"/><path transform="translate(326.3636363636364,315)" d="M0,0L0,6"/><path transform="translate(395.45454545454544,315)" d="M0,0L0,6"/></g><g aria-label="x-axis tick label" font-variant="tabular-nums" transform="translate(0,9)"><text y="0.71em" transform="translate(50,315)">0.06</text><text y="0.71em" transform="translate(119.0909090909091,315)">0.08</text><text y="0.71em" transform="translate(188.1818181818182,315)">0.10</text><text y="0.71em" transform="translate(257.27272727272725,315)">0.12</text><text y="0.71em" transform="translate(326.3636363636364,315)">0.14</text><text y="0.71em" transform="translate(395.45454545454544,315)">0.16</text></g><g aria-label="x-axis label" transform="translate(0,32)"><text transform="translate(240,315)">β</text></g><g aria-label="line" fill="none" stroke="purple" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M50,314.958L84.545,244.812L119.091,163.657L153.636,168.072L188.182,189.456L222.727,203.425L257.273,205.341L291.818,193.72L326.364,167.288L360.909,136.33L395.455,116.553L430,110.388"/></g><g aria-label="line" fill="none" stroke="blue" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M50,315L84.545,258.423L119.091,147.128L153.636,114.379L188.182,102.004L222.727,92.079L257.273,80.203L291.818,66.167L326.364,51.407L360.909,38.276L395.455,27.881L430,20"/></g><rect aria-label="frame" fill="none" stroke="currentColor" x="50" y="20" width="380" height="295"/><g aria-label="tip" fill="white" stroke="currentColor" text-anchor="start"><g transform="translate(361,136)"><path filter="drop-shadow(0 3px 4px rgba(0,0,0,0.2))" d="M0,0l12,12h50v29h-62z"/><text fill="currentColor" fill-opacity="1" stroke="none" y="-0.06em" transform="translate(8,20)"><tspan x="0" dy="1em">​η = 0.005</tspan></text></g></g><g aria-label="tip" fill="white" stroke="currentColor" text-anchor="start"><g transform="translate(361,38)"><path filter="drop-shadow(0 3px 4px rgba(0,0,0,0.2))" d="M0,0l12,12h44v29h-56z"/><text fill="currentColor" fill-opacity="1" stroke="none" y="-0.06em" transform="translate(8,20)"><tspan x="0" dy="1em">​η = 0.05</tspan></text></g></g></svg>
+}</style>
+  <g
+     aria-label="rule"
+     stroke="currentColor"
+     id="g141481">
+    <line
+       x1="50"
+       x2="430"
+       y1="315"
+       y2="315"
+       id="line141479" />
+  </g>
+  <g
+     aria-label="y-axis tick"
+     fill="none"
+     stroke="currentColor"
+     id="g141493">
+    <path
+       transform="translate(50,315)"
+       d="M0,0L-6,0"
+       id="path141483" />
+    <path
+       transform="translate(50,249.5099317973206)"
+       d="M0,0L-6,0"
+       id="path141485" />
+    <path
+       transform="translate(50,184.0198635946412)"
+       d="M0,0L-6,0"
+       id="path141487" />
+    <path
+       transform="translate(50,118.52979539196185)"
+       d="M0,0L-6,0"
+       id="path141489" />
+    <path
+       transform="translate(50,53.03972718928246)"
+       d="M0,0L-6,0"
+       id="path141491" />
+  </g>
+  <g
+     aria-label="y-axis tick label"
+     text-anchor="end"
+     font-variant="tabular-nums"
+     transform="translate(-9,0)"
+     id="g141505">
+    <text
+       y="0.32em"
+       transform="translate(50,315)"
+       id="text141495">0.00</text>
+    <text
+       y="0.32em"
+       transform="translate(50,249.5099317973206)"
+       id="text141497">0.05</text>
+    <text
+       y="0.32em"
+       transform="translate(50,184.0198635946412)"
+       id="text141499">0.10</text>
+    <text
+       y="0.32em"
+       transform="translate(50,118.52979539196185)"
+       id="text141501">0.15</text>
+    <text
+       y="0.32em"
+       transform="translate(50,53.03972718928246)"
+       id="text141503">0.20</text>
+  </g>
+  <g
+     aria-label="y-axis label"
+     transform="translate(-47,0)"
+     id="g141509">
+    <text
+       y="0.71em"
+       transform="translate(50,167.5) rotate(-90)"
+       id="text141507">equilibrium prevalence</text>
+  </g>
+  <g
+     aria-label="x-axis tick"
+     fill="none"
+     stroke="currentColor"
+     id="g141523">
+    <path
+       transform="translate(50,315)"
+       d="M0,0L0,6"
+       id="path141511" />
+    <path
+       transform="translate(119.0909090909091,315)"
+       d="M0,0L0,6"
+       id="path141513" />
+    <path
+       transform="translate(188.1818181818182,315)"
+       d="M0,0L0,6"
+       id="path141515" />
+    <path
+       transform="translate(257.27272727272725,315)"
+       d="M0,0L0,6"
+       id="path141517" />
+    <path
+       transform="translate(326.3636363636364,315)"
+       d="M0,0L0,6"
+       id="path141519" />
+    <path
+       transform="translate(395.45454545454544,315)"
+       d="M0,0L0,6"
+       id="path141521" />
+  </g>
+  <g
+     aria-label="x-axis tick label"
+     font-variant="tabular-nums"
+     transform="translate(0,9)"
+     id="g141537">
+    <text
+       y="0.71em"
+       transform="translate(50,315)"
+       id="text141525">0.06</text>
+    <text
+       y="0.71em"
+       transform="translate(119.0909090909091,315)"
+       id="text141527">0.08</text>
+    <text
+       y="0.71em"
+       transform="translate(188.1818181818182,315)"
+       id="text141529">0.10</text>
+    <text
+       y="0.71em"
+       transform="translate(257.27272727272725,315)"
+       id="text141531">0.12</text>
+    <text
+       y="0.71em"
+       transform="translate(326.3636363636364,315)"
+       id="text141533">0.14</text>
+    <text
+       y="0.71em"
+       transform="translate(395.45454545454544,315)"
+       id="text141535">0.16</text>
+  </g>
+  <g
+     aria-label="x-axis label"
+     transform="translate(0,32)"
+     id="g141541">
+    <text
+       transform="translate(240,315)"
+       id="text141539">β</text>
+  </g>
+  <g
+     aria-label="line"
+     fill="none"
+     stroke="purple"
+     stroke-width="1.5"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="g141545">
+    <path
+       d="M50,314.958L84.545,244.812L119.091,163.657L153.636,168.072L188.182,189.456L222.727,203.425L257.273,205.341L291.818,193.72L326.364,167.288L360.909,136.33L395.455,116.553L430,110.388"
+       id="path141543" />
+  </g>
+  <g
+     aria-label="line"
+     fill="none"
+     stroke="blue"
+     stroke-width="1.5"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="g141549">
+    <path
+       d="M50,315L84.545,258.423L119.091,147.128L153.636,114.379L188.182,102.004L222.727,92.079L257.273,80.203L291.818,66.167L326.364,51.407L360.909,38.276L395.455,27.881L430,20"
+       id="path141547" />
+  </g>
+  <rect
+     aria-label="frame"
+     fill="none"
+     stroke="currentColor"
+     x="50"
+     y="20"
+     width="380"
+     height="295"
+     id="rect141551" />
+  <g
+     aria-label="tip"
+     fill="white"
+     stroke="currentColor"
+     text-anchor="start"
+     id="g141561">
+    <g
+       transform="translate(361,136)"
+       id="g141559">
+      <path
+         filter="drop-shadow(0 3px 4px rgba(0,0,0,0.2))"
+         d="M0,0l12,12h50v29h-62z"
+         id="path141553" />
+      <text
+         fill="currentColor"
+         fill-opacity="1"
+         stroke="none"
+         y="-0.06em"
+         transform="translate(8,20)"
+         id="text141557"><tspan
+           x="0"
+           dy="1em"
+           id="tspan141555">​η = 0.005</tspan></text>
+    </g>
+  </g>
+  <g
+     aria-label="tip"
+     fill="white"
+     stroke="currentColor"
+     text-anchor="start"
+     id="g141571">
+    <g
+       transform="translate(361,38)"
+       id="g141569">
+      <path
+         filter="drop-shadow(0 3px 4px rgba(0,0,0,0.2))"
+         d="M0,0l12,12h44v29h-56z"
+         id="path141563" />
+      <text
+         fill="currentColor"
+         fill-opacity="1"
+         stroke="none"
+         y="-0.06em"
+         transform="translate(8,20)"
+         id="text141567"><tspan
+           x="0"
+           dy="1em"
+           id="tspan141565">​η = 0.05</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -102,19 +102,19 @@ end
 
     # Calculate mean-field coupling and observed fitness landscape
     for ℓ in 1:L
-        n_adopt = collect(0:(n-1))
-        Z[ℓ]    = sum(exp.(b*n_adopt .- c*(ℓ-1)) .* G.x[ℓ]) 
+        n_infect = collect(0:(n-1))
+        Z[ℓ]    = sum(exp.(b*n_infect .- c*(ℓ-1)) .* G.x[ℓ]) 
         pop[ℓ]  = sum(G.x[ℓ])
-        R      += sum(ρ * n_adopt .* G.x[ℓ]) 
+        R      += sum(ρ * n_infect .* G.x[ℓ]) 
         pop[ℓ] > 0.0 && ( Z[ℓ] /= pop[ℓ] ) 
       end
       
       for ℓ = 1:L, i = 1:n
-        n_adopt, gr_size = i-1, n-1
+        n_infect, gr_size = i-1, n-1
         # Diffusion events
-        du.x[ℓ][i] = -γ*n_adopt*G.x[ℓ][i] - β*(ℓ^-α)*g(n_adopt+R, ξ=ξ)*(gr_size-n_adopt)*G.x[ℓ][i]
-        n_adopt > 0 && ( du.x[ℓ][i] += β*(ℓ^-α)*g(n_adopt-1+R, ξ=ξ)*(gr_size-n_adopt+1)*G.x[ℓ][i-1])
-        n_adopt < gr_size && ( du.x[ℓ][i] +=  γ*(n_adopt+1)*G.x[ℓ][i+1] )
+        du.x[ℓ][i] = -γ*n_infect*G.x[ℓ][i] - β*(ℓ^-α)*g(n_infect+R, ξ=ξ)*(gr_size-n_infect)*G.x[ℓ][i]
+        n_infect > 0 && ( du.x[ℓ][i] += β*(ℓ^-α)*g(n_infect-1+R, ξ=ξ)*(gr_size-n_infect+1)*G.x[ℓ][i-1])
+        n_infect < gr_size && ( du.x[ℓ][i] +=  γ*(n_infect+1)*G.x[ℓ][i+1] )
         # Group selection process
         ℓ > 1 && ( du.x[ℓ][i] += η*G.x[ℓ-1][i]*(Z[ℓ] / Z[ℓ-1] + μ) - η*G.x[ℓ][i]*(Z[ℓ-1] / Z[ℓ] + μ) )
         ℓ < L && ( du.x[ℓ][i] += η*G.x[ℓ+1][i]*(Z[ℓ] / Z[ℓ+1] + μ) - η*G.x[ℓ][i]*(Z[ℓ+1] / Z[ℓ] + μ) )
