@@ -23,7 +23,8 @@ function sourcesink_m(;β=0.07, γ=1., ρ=.1, b=.18, c=1.05, μ=.0001)
   ys = [inst_level_prop[i] for i in 1:L]  
   
   return Plots.scatter(xs, ys, xaxis=:log, legendtitle= "level", 
-                       legend=:outertopright, labels = collect(1:L)', palette = Plots.palette(:Blues),
+                       legend=:outertopright, labels = collect(1:L)', 
+                       palette = Plots.palette(:Blues),
                        markerstrokewidth = 0, markersize = 3.)
 end
 
@@ -54,7 +55,8 @@ function ressource_m(;β=0.07, γ=.1, ρ=.5, b=.18, c=1.05, μ=.2,  δ=1.0, α=0
   ys = [inst_level_prop[i] for i in 1:L]  
   
   return Plots.scatter(xs, ys, xaxis=:log, legendtitle= "level", 
-                       legend=:outertopright, labels = collect(1:L)', palette = Plots.palette(:Blues),
+                       legend=:outertopright, labels = collect(1:L)', 
+                       palette = Plots.palette(:Blues),
                        markerstrokewidth = 0, markersize = 3.)
 end
 

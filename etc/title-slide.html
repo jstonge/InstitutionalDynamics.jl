@@ -1,0 +1,29 @@
+<section id="$idprefix$title-slide"$for(title-slide-attributes/pairs)$ $it.key$="$it.value$"$endfor$>
+    <br><br><br>
+    <h1 class="title" style="font-size: 1.5em; font-family:'SF pro' ">$title$</h1>
+  $if(subtitle)$
+  <p class="subtitle">$subtitle$</p>
+  $endif$
+  $for(author)$
+    <br><br>
+    <p class="author" align="left" style="font-size:0.8em; ">$author$</p>
+  $endfor$
+  $if(email)$
+  <p class="email" align="left" style="font-size:0.8em; "><a href="url">$email$</a> :: @$twitter$</p>
+  $endif$
+  $for(institute)$
+  <p class="institute" align="left" style="font-size:0.8em; ">$institute$</p>
+  $endfor$
+  $if(date)$
+  <p class="date">$date$</p>
+  $endif$
+  $if(coauthor)$
+  $for(coauthor)$
+  <p class="coauthor" align="left" style="font-size:0.6em; font-style: italic; ">Joint work with $coauthor$</p>
+  $endfor$
+  $endif$
+  </section>
+  
+
+
+  
