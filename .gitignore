@@ -2,3 +2,4 @@ src/plotting.jl
 src/sourcesink_template.jl
 .Rproj.user
 netsci2023_files/
+etc/thrash/

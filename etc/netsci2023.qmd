@@ -7,7 +7,7 @@ twitter: jonSO_
 format: 
   revealjs:
     theme: [default, custom.scss]
-    logo: vermont_CSDS.png
+    logo: figs/vermont_CSDS.png
     css: style.css
     footer: "Jonathan St-Onge - Netsci2023"
     template-partials:
@@ -26,13 +26,13 @@ editor: visual
 :::: {.columns}
 
 ::: {.column width="33%" .fragment}
-![](germs.jpg)
+![](figs/germs.jpg)
 :::
 ::: {.column width="33%" .fragment}
-![](qanon.jpg)
+![](figs/qanon.jpg)
 :::
 ::: {.column width="33%" .fragment}
-![](social_smoking.jpeg)
+![](figs/social_smoking.jpeg)
 :::
 
 ::::
@@ -89,9 +89,9 @@ Cumulative time: 1m
 
 ![](https://i.ytimg.com/vi/z_7Tcfeb1X0/mqdefault.jpg){.fragment width="450"}
 
-![](beach.jpg){.fragment width="450"}
+![](figs/beach.jpg){.fragment width="450"}
 
-![](settings.jpg){.fragment width="450"}
+![](figs/settings.jpg){.fragment width="450"}
 
 :::
 :::
@@ -125,13 +125,13 @@ Cumulative time: 1.5m
  * what happens if institutions can hinder contagions?
  * what is the impact of timescales and coupling between groups on the co-evolution of contagions and institutions
 
-![](question.png){fig-align="center"}
+![](figs/question.png){fig-align="center"}
 
 ## 
 
 ### [Group-based model]{.important-blue} [with policy selection]{.strong-fade} of contagion
 
-![](schema2b.svg){fig-align="center" width=1200}
+![](figs/schema2b.svg){fig-align="center" width=1200}
 
 :::: {style="text-align: center;"}
 We keep track of infected $i$ in groups of fixed size.
@@ -149,7 +149,7 @@ Cumulative time: 3m
 
 ### [Group-based model]{.fade} [with policy selection]{.important-orange} of contagion
 
-![](schema2.svg){fig-align="center" width=1200}
+![](figs/schema2.svg){fig-align="center" width=1200}
 
 :::: {style="text-align: center;"}
 The rate of infection depends on institutional level $\ell$
@@ -251,7 +251,7 @@ $$
 
 ### Thinking fast and slow
 
-![](regimes.svg){fig-align="center" width=1200}
+![](figs/regimes.svg){fig-align="center" width=1200}
 
 ::: {.notes}
 
@@ -267,25 +267,25 @@ On the
 
 ### Thinking fast and slow
 
-![](regimesA.svg){fig-align="center" width=1200}
+![](figs/regimesA.svg){fig-align="center" width=1200}
 
 ## 
 
 ### Thinking fast and slow
 
-![](regimesB.svg){fig-align="center" width=1200}
+![](figs/regimesB.svg){fig-align="center" width=1200}
 
 ## 
 
 ### Thinking fast and slow
 
-![](regimesC.svg){fig-align="center" width=1200}
+![](figs/regimesC.svg){fig-align="center" width=1200}
 
 ## 
 
 ### Thinking fast and slow
 
-![](regimesD.svg){fig-align="center" width=1200}
+![](figs/regimesD.svg){fig-align="center" width=1200}
 
 
 ## 
@@ -295,7 +295,7 @@ On the
 <br>
 <br>
 
-![](dashboard1b.svg){fig-align="center" width=1200}
+![](figs/dashboard1b.svg){fig-align="center" width=1200}
 
 <br>
 
@@ -310,7 +310,7 @@ Now lets shift our focus from time evolution dynamics to what happens at steady-
 <br>
 <br>
 
-![](dashboard1a.svg){fig-align="center" width=1200}
+![](figs/dashboard1a.svg){fig-align="center" width=1200}
 
 <br>
 
@@ -340,7 +340,7 @@ Cumulative time: 9m
 
 ### Free-riding and Call for action
 
-![](fig_free-riding.svg){fig-align="center" width=1200}
+![](figs/fig_free-riding.svg){fig-align="center" width=1200}
 
 
 ::: {.notes}
@@ -358,7 +358,7 @@ Cumulative time: 12m
 
 ### Free-riding and Call for action
 
-![](fig_free-ridingA.svg){fig-align="center" width=1200}
+![](figs/fig_free-ridingA.svg){fig-align="center" width=1200}
 
 ::: {.not-as-small style="text-align: center"}
 * $I_\ell$ is the equilibrium prevalence
@@ -371,7 +371,7 @@ Cumulative time: 12m
 
 ### Free-riding [and Call for action]{.strong-fade}
 
-![](fig_free-ridingB.svg){fig-align="center" width=1200}
+![](figs/fig_free-ridingB.svg){fig-align="center" width=1200}
 
 ::: {.not-as-small style="text-align: center;"}
 * $\Delta_\ell < 0$: Institutional Free-riding 
@@ -384,7 +384,7 @@ where $\Delta_\ell = (I_\ell - \tilde{I}_\ell)/(I_\ell + \tilde{I}_\ell)$
 
 ### [Free-riding and]{.strong-fade} Call for action
 
-![](fig_free-ridingC.svg){fig-align="center" width=1200}
+![](figs/fig_free-ridingC.svg){fig-align="center" width=1200}
 
 ::: {.not-as-small style="text-align: center;"}
 More transmission can help when you give time for institutions to copy!
@@ -394,7 +394,7 @@ More transmission can help when you give time for institutions to copy!
 
 ### Free-riding and Call for action
 
-![](fig_free-ridingD.svg){fig-align="center" width=1200}
+![](figs/fig_free-ridingD.svg){fig-align="center" width=1200}
 
 ::: {.not-as-small style="text-align: center;"}
 Can also be seen with intergroup coupling.

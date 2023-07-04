@@ -53,13 +53,13 @@ lvl_1_inf = true
 sol = run_source_sink2(p, L=L, lvl_1_inf=lvl_1_inf)
 inst_level, inst_level_prop = parse_sol(sol)
 
-plot_both(inst_level, inst_level_prop, global_pal="seagreen", out="FastInst_endemic.pdf")
+# plot_both(inst_level, inst_level_prop, global_pal="seagreen", out="FastInst_endemic.pdf")
 
 global_freq1 = [sum([inst_level[ℓ][t]*inst_level_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 
 pl = plot(1:t_max, global_freq1[1:t_max], width = 4, 
           xscale=:log10, xlabel = L"\textrm{time}",
-          ylabel = L"\textrm{prevalence}", legend=:top, 
+          ylabel = L"\textrm{prevalence}", legend=:right, 
           label = L"\ \eta = %$(ηs[1]),\ \beta = %$(p[1]),\ \textrm{i.c.}\ 1",
           color = "seagreen", grid =:none);
 
@@ -68,8 +68,7 @@ p[6] = ηs[2]
 sol = run_source_sink2(p, L=L, lvl_1_inf=lvl_1_inf)
 res, res_prop = parse_sol(sol)
 
-plot_both(res, res_prop, global_pal="deepskyblue", out="SlowInst_endemic.pdf")
-
+# plot_both(res, res_prop, global_pal="deepskyblue", out="SlowInst_endemic.pdf")
 
 global_freq2 = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 plot!(1:t_max, global_freq2[1:t_max], width = 4, 
@@ -81,8 +80,7 @@ p[6] = ηs[3]
 sol = run_source_sink2(p, L=L, lvl_1_inf=lvl_1_inf)
 res, res_prop = parse_sol(sol)
 
-plot_both(res, res_prop, global_pal="darkorchid2", out="SlowInst_eradication.pdf")
-
+# plot_both(res, res_prop, global_pal="darkorchid2", out="SlowInst_eradication.pdf")
 
 global_freq3 = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 plot!(1:t_max, global_freq3[1:t_max], width = 4, 
@@ -95,7 +93,7 @@ p[6] = ηs[3]
 sol = run_source_sink2(p, L=L, lvl_1_inf=lvl_1_inf)
 res, res_prop = parse_sol(sol)
 
-plot_both(res, res_prop, global_pal="purple", out=nothing)
+# plot_both(res, res_prop, global_pal="purple", out=nothing)
 
 global_freq4 = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 plot!(1:t_max, global_freq4[1:t_max], width = 4,
@@ -108,6 +106,7 @@ perc_inf = 0.3
 p[6] = ηs[2]
 sol = run_source_sink2(p, L=L, perc_inf = perc_inf, lvl_1_inf=lvl_1_inf)
 res, res_prop = parse_sol(sol)
+
 global_freq5 = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 plot!(1:t_max, global_freq5[1:t_max], width = 4,
       label = L"\ \eta = %$(ηs[2]),\ \beta = %$(p[1]),\ \textrm{i.c.}\ 3",
@@ -120,14 +119,17 @@ perc_inf = 0.3
 sol = run_source_sink2(p, L=L, perc_inf = perc_inf, lvl_1_inf=lvl_1_inf)
 res, res_prop = parse_sol(sol)
 
-plot_both(res, res_prop, global_pal="orange", out="FastInst_eradication.pdf")
+# plot_both(res, res_prop, global_pal="orange", out="FastInst_eradication.pdf")
 
 global_freq6 = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 plot!(1:t_max, global_freq6[1:t_max], width = 4,
       label = L"\ \eta = %$(ηs[2]),\ \beta = %$(p[1]),\ \textrm{i.c.}\ 3",
       color = "orange3")
 
-savefig("NetSci_abstract_fig_no_orange.pdf")
+
+plot!(size=(1000, 600), bottom_margin = 5mm, 
+      left_margin = 5mm, legend=:topleft)
+savefig("NetSci_abstract_fig.pdf")
 
 
 # -------------------------------- Extra fig 1 ------------------------------- #
