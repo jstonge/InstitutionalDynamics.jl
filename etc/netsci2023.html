@@ -339,11 +339,8 @@
   
 <section id="section" class="slide level2">
 <h2></h2>
-<h3 id="more-spread-can-help">More spread can help</h3>
-<div class="fragment">
-<ul>
-<li>In traditional epidemiological studies, higher transmission rates most often lead to higher steady-state prevalence. <span class="fragment highlight-red">More spread, more infection.</span></li>
-</ul>
+<div class="fragment important-black">
+<p>In traditional epidemiological studies, higher transmission rates means higher steady-state prevalence</p>
 </div>
 <div class="columns">
 <div class="column fragment" style="width:33%;">
@@ -354,18 +351,24 @@
 <p><img data-src="figs/social_smoking.jpeg"></p>
 </div>
 </div>
+<div class="fragment important-black">
+<p><span class="math inline">\(\rightarrow\)</span> But we know this isn’t the truth. Institutions emerge to fight an epidemic.</p>
+</div>
 <div class="fragment">
-<ul>
-<li>But we know this isn’t the truth. Institutions (hopefully) will emerge to fight an epidemic.</li>
-</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://api.hub.jhu.edu/factory/sites/default/files/styles/landscape/public/health_dept_022521_impact.jpg" width="300"></p>
+</figure>
+</div>
 </div>
 <aside class="notes">
 <p>Today i’ll talking about the interplay of adaptive behaviors and institutions in the study of contagions.</p>
-<p>Let me begin with a bold statement. Here it is. Higher transmission rate of an undesirable agent in a population can help reduce its overall equilibrium prevalence.</p>
-<p>This statement, arguably, goes against much of what we learn in most contagion studies. In contagion studies, we typically assume, very reasonably, that the outcome of a contagion is determined by individuals infecting each other. As more sick people interact, you get More spread, more infection.</p>
-<p>This is true for disease transmission, but also misinformation on social media and social contagion more generally.</p>
-<p>But we know the story isn’t right. As contagions take off, relevant institutions will (hopfully) step in to try control the spread of the pathogen.</p>
-<p>Duration: 1m Cumulative time: 1m</p>
+<p>In contagion studies, we are interested in understanding the spread of an undesirable agents in a population.</p>
+<p>When modeling this spread, we assume that the outcome of a contagion is determined by the rate at which individuals infect each other. As you get more infected people in your system, you end up with higher prevalence rate.</p>
+<p>This is how we model disease transmission, but also misinformation on social media and social contagion more generally.</p>
+<p>But we know the story isn’t right. As contagions take off, relevant institutions will (hopfully) step in to try control the spread of the undesirable agent.</p>
+<p>More of a bad thing forces institutions to do something about it.</p>
+<p>A second aspect of traditional modeling I want to challenge today is that to model institutions we don’t need complex mechanisms.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -381,41 +384,46 @@
 <section id="section-1" class="slide level2">
 <h2></h2>
 <h3 id="contagion-dynamics-on-higher-order-networks">Contagion dynamics on higher-order networks</h3>
-<div class="fragment">
 <div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li>During the COVID-19 pandemic, we’ve been thinking a lot about how the structure of the network changes.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p><img data-src="https://coronavirus.jhu.edu/images/assets/contact-tracing_476f0cc525.jpeg"></p>
+<div class="column fragment" style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/billard_ball.png" width="255"></p>
+<figcaption>Classic models are simple</figcaption>
+</figure>
+</div>
+</div><div class="column fragment" style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/complex_model.png"></p>
+<figcaption>Complex models are <span class="important-maroon">agent-based</span></figcaption>
+</figure>
 </div>
 </div>
 </div>
 <div class="columns">
 <div class="column fragment" style="width:60%;">
-<ul>
-<li>Higher-order networks make it possible to study the <span class="important-maroon">impact of group-level dynamics and norms</span> on contagion.</li>
-</ul>
+<p><span class="math inline">\(\rightarrow\)</span> Higher-order networks make it possible to study the <span class="important-maroon">impact of group-level dynamics and norms</span> on contagion.</p>
 </div><div class="column" style="width:40%;">
 <div class="r-stack">
-<p><img data-src="https://i.ytimg.com/vi/z_7Tcfeb1X0/mqdefault.jpg" class="fragment" width="450"></p>
 <p><img data-src="figs/beach.jpg" class="fragment" width="450"></p>
+<p><img data-src="figs/death.jpg" class="fragment" width="450"></p>
 <p><img data-src="figs/settings.jpg" class="fragment" width="450"></p>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>The fact that institutions emerge as contagions get out of control is rarely taking into account in our traditional epidemiological toolbox.</p>
-<p>For instance, during the COVID-19 pandemics, many models focused on the interplay of individual behaviors and network structure. Think about contact tracing studies studying how the networks change as people cut ties in response to the spread of the disease (see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9367716/).</p>
-<p>Here we will show that by looking at higher-order networks we can study the impact of group-level dynamics and norms during a contagion.</p>
-<p>Our working assumption is that in fighting epidemics, we rely neither completely on top-down interventions or individual adaptations, but a mixed of the two that takes the form of local institutions such as public health departments or moderator teams.</p>
-<p>So in our case, we’ll keep the network as it is. But we’ll assume that <em>groups</em> adopt or reject different policies by taking inspiration from the successes and failures of other groups.</p>
-<p>As such, we assume that groups have dynamics as much as individuals. Some, most behaviors only make sense in the light of norms and social identity dynamics.</p>
-<p>As a striking example, you might remember that in the middle of the pandemic, some people gathered on The Corona del Mar State Beach. This is an example of how groups norms inform individuals during a contagion.</p>
-<p>In our model we go even further and assume that even inhabiting the same environment can count to be part of a group. Groups sharing a bad ventilation or sewage systems will impact how they are gonna do during a contagion.</p>
-<p>How did we study groups, concretely?</p>
-<p>Duration: .5m Cumulative time: 1.5m</p>
+<p>Here what we learn in class.</p>
+<p>Classic models are simple. We assume a well-mixed population bouncing on each other, infecting when they get into contact.</p>
+<p>Complex models are agent-based. Once you are tired of simple bouncing balls, you get into the agent-based module of the class. We feel powerful at modeling reality, including each relevant detail one might care about in a contagion. Then we get to the analysis part, we are at lost.</p>
+<p>This naturally lead to studying how the structure of the network changes. As an example, contact tracing during the COVID-19 pandemic was the popular in many studies. We wanted to trace the spread among individuals and how it was changing the network.</p>
+<p>Instead of tweaking the network structure to see how individuals adapt to a contagion, our idea was to start with group norms and see how they can hinder contagion.</p>
+<p>In other words, we keep the network as it is. But we’ll assume that <em>groups</em> have dynamics.</p>
+<p>Maybe some of you remember this photo of people at the beach at the peak of the pandemic. You might remember this guy showing up. How are we to understand what is happenning here. One option would be to model each agent on this beach on their own. Or we can simply see two groups here, with different norms about the right behaviors to adopt during a contagion. This is what I mean when I say that see the forest of groups before the tress of individuals</p>
+<p>Even inhabiting the same environment can count to be part of a group. Groups sharing a bad ventilation or sewage systems will impact how they are gonna do during a contagion.</p>
+<!-- We want to know about the effect of humanly devised constraints that shape human interaction, as Alfred North would put it.  
+
+Most behaviors only make sense in the light of social identity dynamics and a simply way to tackle this problem is to . -->
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -431,21 +439,17 @@
 <section id="questions" class="slide level2">
 <h2>Questions:</h2>
 <ul>
-<li>what happens if institutions can hinder contagions?</li>
-<li>what is the impact of timescales and coupling between groups on the co-evolution of contagions and institutions</li>
+<li>what happens if institutions of varying strength can hinder contagions?</li>
+<li>what is the impact of timescales and coupling between groups on the co-evolution of contagions and institutions?</li>
 </ul>
 
-<img data-src="figs/question.png" class="r-stretch quarto-figure-center"></section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<h3 id="group-based-model-with-policy-selection-of-contagion"><span class="important-blue">Group-based model</span> <span class="strong-fade">with policy selection</span> of contagion</h3>
-
-<img data-src="figs/schema2b.svg" width="1200" class="r-stretch quarto-figure-center"><div style="text-align: center;">
-<p>We keep track of infected <span class="math inline">\(i\)</span> in groups of fixed size.</p>
-</div>
-<aside class="notes">
-<p>Lets start with a single group. In our model, we care about how many infected people are in your groups. Groups have a fixed size. Individuals can get infected at a rate beta and recover at a rate gamma. Groups can put in place norms and policies to limit contagion. We will represent that through an abstract institutional level <span class="math inline">\(\ell\)</span> which translate to a <em>local</em> transmission rate <span class="math inline">\(\beta(\ell) = \beta_0\ell^{-\alpha}\)</span>. Stronger <span class="math inline">\(\ell\)</span> means smaller rate.</p>
-<p>Duration: 1.5m Cumulative time: 3m</p>
+<img data-src="figs/question.png" class="r-stretch quarto-figure-center"><aside class="notes">
+<p>What if we let institutions of varying institutional strength try to reduce the spread of a contagion? Here this is really a question about the co-evolution of policy and collective dynamics.</p>
+<p>[READ QUESTION 2]</p>
+<p>Here I want to highlight on the importance of timescales for our approach.</p>
+<p>Fast and slow institutions can will have different impact on different epidemic scenarios.</p>
+<p>A related subquestion in our work was “how do we assess the effectiveness of institutions while they operate on longer time scale than our micro perspective”. These questions draw their inspiration from the studies of institutional change and common-pool ressources.</p>
+<p>The intuition here is similar to that of how large firms produce more long-term, routined innovations while small firms capitalize on disruptive innovation. How does this idea translate when we add policy selection at group level.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -458,17 +462,28 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="section-2" class="slide level2" data-background-color="black">
+<h2></h2>
+<p><span class="new-center-big">The model</span></p>
+</section>
 <section id="section-3" class="slide level2">
 <h2></h2>
-<h3 id="group-based-model-with-policy-selection-of-contagion-1"><span class="fade">Group-based model</span> <span class="important-orange">with policy selection</span> of contagion</h3>
+<h3 id="group-based-model-with-policy-selection-of-contagion"><span class="important-blue">Group-based model</span> <span class="strong-fade">with policy selection</span> of contagion</h3>
 
-<img data-src="figs/schema2.svg" width="1200" class="r-stretch quarto-figure-center"><div style="text-align: center;">
-<p>The rate of infection depends on institutional level <span class="math inline">\(\ell\)</span></p>
+<img data-src="figs/schema2b.svg" width="1200" class="r-stretch quarto-figure-center"><div style="text-align: center;">
+<p>We keep track of infected <span class="math inline">\(i\)</span> in groups of fixed size.</p>
+<p><br></p>
+<p><span class="smaller"><span class="math inline">\(\mathbin{\color{#004F80}{R}} = \rho \sum _{i,\ell} i G_{i,\ell}\)</span></span><span class="strong-fade-math-smaller">&nbsp;and <span class="math inline">\(Z_\ell = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;\)</span></span></p>
 </div>
 <aside class="notes">
-<p>Stronger institutions are better at reducing transmission, but this require institutional effort and resources. To assess if the cost is worth it, groups copy each other based on perceived fitness <span class="math inline">\(Z\)</span>. Groups move to various institutional strenght proportionally to the relative fitness of different levels.</p>
-<p>For instance, think of Winoski wondering if it should adopt the mask mandates. Winoski looks at Burlington to see how it is going. If Burly is doing much better, Winoski might decide to adopt this policy as well. Of course, if things are going so well, maybe Winoski could prefer to not put the effort and take advantage that Burlington is doing so well.</p>
-<p>Duration: 1.5m Cumulative time: 4.5m</p>
+<p>Lets start with a single group.</p>
+<p>In our model, we care about how many infected people are in your groups. Groups have a fixed size. Individuals can get infected at a rate beta and recover at a rate gamma. Groups can put in place norms and policies to limit contagion.</p>
+<p>We will represent that through an abstract institutional level <span class="math inline">\(\ell\)</span> which translate to a <em>local</em> transmission rate <span class="math inline">\(\beta(\ell) = \beta_0\ell^{-\alpha}\)</span>. Stronger <span class="math inline">\(\ell\)</span> means smaller rate.</p>
+<p>Individuals are infected at a rate <span class="math inline">\(\beta(\ell)\)</span></p>
+<p>The term at the bottom show show how we break down our systems into subsystems.</p>
+<p>Whereas <span class="math inline">\(\beta_0 \ell^{-\alpha}\)</span> is the internal rate of transmission, <span class="math inline">\(R\)</span> is the possible contact with infected in other groups. Assuming random mixing between groups, it is thes product of an inter-group coupling <span class="math inline">\(\rho\)</span> and the expected number of infected units in a randomly selected group.</p>
+<p>(∑_{i,ℓ} i*G_{i,ℓ}) is the expected number of infected units in a randomly selected group.</p>
+<p>Duration: 1.5m Cumulative time: 3m</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -483,30 +498,19 @@
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
-<h3 id="diffusion-events-with-policy-selection-process"><span class="important-blue">Diffusion events</span> <span class="strong-fade">with policy selection process</span></h3>
-<p><span class="math-size"><span class="math display">\[\begin{equation} \label{eq:diffusion_me}
-    \begin{split}
-        \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} &amp;= \color{#004F80}{\beta_0\ell^{-\alpha}}\left[(i-1)+\color{#004F80}{R}\right]\left(n-i+1\right)G_{i-1,\ell} \\
-        &amp;- \color{#004F80}{\beta_0\ell^{-\alpha}}\left(i+\mathbin{\color{#004F80}{R}}\right)\left(n-i\right)G_{i,\ell} \\
-        &amp;+ \color{#004F80}{\gamma}\left(i+1\right)G_{i+1,\ell} - \color{#004F80}{\gamma} i G_{i,\ell} \; .
-    \end{split}
-\end{equation}\]</span></span></p>
-<p><span class="strong-fade-math"><span class="math display">\[\begin{equation}
-  \begin{split}
-      \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} &amp;= \eta \left[G_{i,\ell-1}\left(Z_\ell Z_{\ell-1}^{-1} + \mu\right) + G_{i,\ell+1}\left(Z_\ell Z_{\ell+1}^{-1}+\mu\right) \right] \notag \\
-                                              &amp;- \eta \left(Z_{\ell - 1}Z_{\ell}^{-1}+Z_{\ell+1}Z_{\ell}^{-1} + 2\mu\right)G_{i,\ell}\; .
-    \newline
-    \newline
-    
-    \end{split}
-\end{equation}\]</span></span></p>
-<p><span class="strong-fade-math-smaller">where <span class="math inline">\(Z_\ell = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;\)</span></span> <span class="smaller">and <span class="math inline">\(\mathbin{\color{#004F80}{R}} = \rho \sum _{i,\ell} i G_{i,\ell}\)</span></span></p>
+<h3 id="group-based-model-with-policy-selection-of-contagion-1"><span class="fade">Group-based model</span> <span class="important-orange">with policy selection</span> of contagion</h3>
+
+<img data-src="figs/schema2.svg" width="1200" class="r-stretch quarto-figure-center"><div style="text-align: center;">
+<p>The rate of infection depends on institutional level <span class="math inline">\(\ell\)</span></p>
+<p><br></p>
+<p><span class="smaller"><span class="math inline">\(R = \rho \sum _{i,\ell} i G_{i,\ell}\)</span></span><span class="not-as-small">&nbsp;and <span class="math inline">\(\color{#e6872e}{Z_\ell} = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;\)</span></span></p>
+</div>
 <aside class="notes">
-<p>Here is the math for those of you are interested.</p>
-<p>I won’t go into the details beside mentionning that this takes the form of master equations. What we track here is the fraction of groups with institional level <span class="math inline">\(\ell\)</span> and <span class="math inline">\(i\)</span> infected.</p>
-<p>What makes it an master equation is that we track the evolution of the distribution of all possible states for a group, accounting for the transition between any two adjacent states.</p>
-<p>The term at the bottom show show how we break down our systems into subsystems. Whereas <span class="math inline">\(\beta_0 \ell^{-\alpha}\)</span> is the internal rate of transmission, <span class="math inline">\(R\)</span> is the possible contact with infected in other groups. Assuming random mixing between groups, it is thes product of an inter-group coupling <span class="math inline">\(\rho\)</span> and the expected number of infected units in a randomly selected group.</p>
-<p>Duration: 1.5m Cumulative time: 5m</p>
+<p>Stronger institutions are better at reducing transmission, but this require institutional effort and resources.</p>
+<p>To assess if the cost is worth it, groups copy each other based on perceived fitness <span class="math inline">\(Z\)</span>. Groups move to various institutional strenght proportionally to the relative fitness of different levels.</p>
+<p>Institutional strength might be how willing a public health department is willing to invest in adopting the mask mandates, or whether a team of moderators want to enforce a code of conducts. Importantly, we are talking about institutions of similar size that adopt stronger policies. We are not comparing the federal public health departments with the city-level one.</p>
+<p>Note that this group-level policy selection is basically a random walk in fitness space. We do not assume about group copying strategy anything fancy at the moment. We could though.</p>
+<p>Duration: 1.5m Cumulative time: 4.5m</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -518,63 +522,94 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<!-- ## 
+
+### [Diffusion events]{.important-blue} [with policy selection process]{.strong-fade}
+
+[\begin{equation} \label{eq:diffusion_me}
+    \begin{split}
+        \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} &= \color{#004F80}{\beta_0\ell^{-\alpha}}\left[(i-1)+\color{#004F80}{R}\right]\left(n-i+1\right)G_{i-1,\ell} \\
+        &- \color{#004F80}{\beta_0\ell^{-\alpha}}\left(i+\mathbin{\color{#004F80}{R}}\right)\left(n-i\right)G_{i,\ell} \\
+        &+ \color{#004F80}{\gamma}\left(i+1\right)G_{i+1,\ell} - \color{#004F80}{\gamma} i G_{i,\ell} \; . 
+    \end{split}
+\end{equation}]{.math-size}
+
+[\begin{equation}
+  \begin{split}
+      \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} &= \eta \left[G_{i,\ell-1}\left(Z_\ell Z_{\ell-1}^{-1} + \mu\right) + G_{i,\ell+1}\left(Z_\ell Z_{\ell+1}^{-1}+\mu\right) \right] \notag \\
+                                              &- \eta \left(Z_{\ell - 1}Z_{\ell}^{-1}+Z_{\ell+1}Z_{\ell}^{-1} + 2\mu\right)G_{i,\ell}\; . 
+    \newline
+    \newline
+    
+    \end{split}
+\end{equation}]{.strong-fade-math}
+
+
+[where $Z_\ell = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.strong-fade-math-smaller} [and $\mathbin{\color{#004F80}{R}} = \rho \sum _{i,\ell} i G_{i,\ell}$]{.smaller}
+
+## 
+
+### [Diffusion events]{.fade} [with policy selection process]{.important-orange}
+
+[\begin{equation}
+    \begin{split}
+        \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} &= \beta_0\ell^{-\alpha}\left[(i-1)+R\right]\left(n-i+1\right)G_{i-1,\ell} \\
+        &- \beta_0\ell^{-\alpha}\left(i+R \right)\left(n-i\right)G_{i,\ell} \\
+        &+ \gamma\left(i+1\right)G_{i+1,\ell} - \gamma i G_{i,\ell} \; . 
+    \end{split}
+\end{equation}]{.math-size}
+
+[\begin{equation}
+  \begin{split}
+      \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} &= \color{#e6872e}{\eta} \left[G_{i,\ell-1}\left(\color{#e6872e}{Z_\ell Z_{\ell-1}^{-1}} + \mu\right) + G_{i,\ell+1}\left(\color{#e6872e}{Z_\ell Z_{\ell+1}^{-1}}+\mu\right) \right] \notag \\
+                                              &- \color{#e6872e}{\eta} \left(\color{#e6872e}{Z_{\ell - 1}Z_{\ell}^{-1}}+\color{#e6872e}{Z_{\ell+1}Z_{\ell}^{-1}} + 2\mu\right)G_{i,\ell}\; . 
+    \newline
+    \newline
+    
+    \end{split}
+\end{equation}]{.math-size}
+
+
+[where $\color{#e6872e}{Z_\ell} = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.not-as-small} [and $R = \rho \sum _{i,\ell} i G_{i,\ell}$]{.smaller}
+
+-->
 </section>
 <section id="section-5" class="slide level2">
-<h2></h2>
-<h3 id="diffusion-events-with-policy-selection-process-1"><span class="fade">Diffusion events</span> <span class="important-orange">with policy selection process</span></h3>
-<p><span class="math-size"><span class="math display">\[\begin{equation}
-    \begin{split}
-        \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} &amp;= \beta_0\ell^{-\alpha}\left[(i-1)+R\right]\left(n-i+1\right)G_{i-1,\ell} \\
-        &amp;- \beta_0\ell^{-\alpha}\left(i+R \right)\left(n-i\right)G_{i,\ell} \\
-        &amp;+ \gamma\left(i+1\right)G_{i+1,\ell} - \gamma i G_{i,\ell} \; .
-    \end{split}
-\end{equation}\]</span></span></p>
-<p><span class="math-size"><span class="math display">\[\begin{equation}
-  \begin{split}
-      \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} &amp;= \color{#e6872e}{\eta} \left[G_{i,\ell-1}\left(\color{#e6872e}{Z_\ell Z_{\ell-1}^{-1}} + \mu\right) + G_{i,\ell+1}\left(\color{#e6872e}{Z_\ell Z_{\ell+1}^{-1}}+\mu\right) \right] \notag \\
-                                              &amp;- \color{#e6872e}{\eta} \left(\color{#e6872e}{Z_{\ell - 1}Z_{\ell}^{-1}}+\color{#e6872e}{Z_{\ell+1}Z_{\ell}^{-1}} + 2\mu\right)G_{i,\ell}\; .
-    \newline
-    \newline
-    
-    \end{split}
-\end{equation}\]</span></span></p>
-<p><span class="not-as-small">where <span class="math inline">\(\color{#e6872e}{Z_\ell} = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;\)</span></span> <span class="smaller">and <span class="math inline">\(R = \rho \sum _{i,\ell} i G_{i,\ell}\)</span></span></p>
-<aside class="notes">
-<p>Here is the math for the policy selection process. Note that group selection is basically a random walk in fitness space. We do not assume social learning strategies at the moment. We could though.</p>
-<p>Duration: 1.5m Cumulative time: 5m</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-6" class="slide level2">
 <h2></h2>
 <h3 id="overall-dynamics-of-our-model">Overall dynamics of our model</h3>
 <div class="new-center">
 <p><span class="math display">\[
-\frac{d}{dt}G_{i,\ell}= \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} + \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} \
+\frac{d}{dt}G_{i,\ell}= \frac{d}{dt} \mathbin{\color{#004F80}{G_{i,\ell}^{\textrm{epi}}}} + \frac{d}{dt} \color{#e6872e}{G_{i,\ell}^{\textrm{sel}}} \
 \]</span></p>
 </div>
 <p><span class="fragment new-center-small">Simple enough!</span></p>
+<aside class="notes">
+<p>The overall dynamics of our model is this epidemiological diffusion events together with a selection process on policies.</p>
+<p>We track the fraction of groups with institional level <span class="math inline">\(\ell\)</span> and <span class="math inline">\(i\)</span> infected.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-6" class="slide level2" data-background-color="black">
+<h2></h2>
+<p><span class="new-center-big">Results</span></p>
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <h3 id="thinking-fast-and-slow">Thinking fast and slow</h3>
 
 <img data-src="figs/regimes.svg" width="1200" class="r-stretch quarto-figure-center"><aside class="notes">
-<p>On the</p>
-<ol type="1">
-<li>Under fast imitation, strong but costly institutions can fail to emerge and an emerging epidemic becomes highly endemic</li>
-<li>Weaker institutions can take time to adjust to an epidemic, leading to large epidemic waves converging to an endemic state (light blue): cigarette consumption .</li>
-<li>Under slow imitation, strong institutions can control an emerging epidemic after an initial large wave of cases, eventually leading to very low endemicity (purple curves): HIV, Syphilis .</li>
-</ol>
+<p>In this first result, I want to show how our model is able to repdroduce a diversity of real-world scenarios.</p>
+<p>We will look at this 4x4 table showing the combination of fast institutions, or institutions that copy each other at a faster rate, relative to transmission rate, and known scenarios epidemic such as eradication and endemic.</p>
+<p>For each plot, i’ll show how prevalence and the proportion of each institutions change in time.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -591,22 +626,74 @@
 <h2></h2>
 <h3 id="thinking-fast-and-slow-1">Thinking fast and slow</h3>
 
-<img data-src="figs/regimesA.svg" width="1200" class="r-stretch quarto-figure-center"></section>
+<img data-src="figs/regimesA.svg" width="1200" class="r-stretch quarto-figure-center"><aside class="notes">
+<p>For instance, this first plot show how fast institution are able to contain weak epidemic. Note that in this case, the only thing we need are relative weak institutions. In the steady states, we mostly have institutions of level 1 and 2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-9" class="slide level2">
 <h2></h2>
 <h3 id="thinking-fast-and-slow-2">Thinking fast and slow</h3>
 
-<img data-src="figs/regimesB.svg" width="1200" class="r-stretch quarto-figure-center"></section>
+<img data-src="figs/regimesA2.svg" width="1200" class="r-stretch quarto-figure-center"><aside class="notes">
+<p>In the second plot, we have a stronger epidemic with a slower copying rate. Strong institutions will eventually control an emerging epidemic after an initial large wave of cases, eventually leading to very low endemicity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-10" class="slide level2">
 <h2></h2>
 <h3 id="thinking-fast-and-slow-3">Thinking fast and slow</h3>
 
-<img data-src="figs/regimesC.svg" width="1200" class="r-stretch quarto-figure-center"></section>
+<img data-src="figs/regimesB.svg" width="1200" class="r-stretch quarto-figure-center"><aside class="notes">
+<p>In the next row, we have the endemic scenario, or when we simply accept to live with a disease. Under fast imitation, strong but costly institutions can fail to emerge and an emerging epidemic becomes highly endemic. Think about Chlamydia, for instance.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-11" class="slide level2">
 <h2></h2>
 <h3 id="thinking-fast-and-slow-4">Thinking fast and slow</h3>
 
-<img data-src="figs/regimesD.svg" width="1200" class="r-stretch quarto-figure-center"></section>
+<img data-src="figs/regimesC.svg" width="1200" class="r-stretch quarto-figure-center"><aside class="notes">
+<p>Lastly, we have slow institutions in endemic scenario. Comapred to the eradication scenario, here strong institutions temporarily control an existing outbreak before partially relaxing. This lead to a situation where we do not eradicate the disease.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-12" class="slide level2">
 <h2></h2>
 <h3 id="parameter-localization">Parameter localization</h3>
@@ -614,8 +701,21 @@
 
 <img data-src="figs/dashboard1b.svg" width="1200" class="r-stretch quarto-figure-center"><p><br></p>
 <div style="text-align: center;">
-<p>Now lets shift our focus from time evolution dynamics to what happens at steady-states..</p>
+<p>Now lets shift our focus from time evolution dynamics to what happens at steady-states…</p>
 </div>
+<aside class="notes">
+<p>On the left plot, we can see the time evolution for one scenario where beta is .16, and intergroup coupling and copying rate are both high. Weak institutions are not up to the task, and the scenario is dominated by institution of level 2 and 3.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-13" class="slide level2">
 <h2></h2>
@@ -624,10 +724,12 @@
 
 <img data-src="figs/dashboard1a.svg" width="1200" class="r-stretch quarto-figure-center"><p><br></p>
 <div style="text-align: center;">
-<p>A certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining <span class="math inline">\(\rightarrow\)</span> institutional localization</p>
+<p>Regions in parameter spaces come to be dominated by particular level of institutions</p>
 </div>
 <aside class="notes">
-<p>Example of institutional localization–when certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining. Here we can see that <span class="math inline">\(\ell=1\)</span> dominates the fitness landscape level with low <span class="math inline">\(\beta\)</span> and low <span class="math inline">\(\rho\)</span>. The second level dominates in the regimes in between, while <span class="math inline">\(\ell=3\)</span> does best when we have strong <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\rho\)</span>. Main parameters <span class="math inline">\(\beta = 0.16\)</span>; <span class="math inline">\(\rho=0.1\)</span>; <span class="math inline">\(\eta = 0.05\)</span>. Other parameters are fixed at <span class="math inline">\(\eta=1\)</span>; <span class="math inline">\(\alpha=1\)</span>; <span class="math inline">\(\gamma=1\)</span>; <span class="math inline">\(b=-1.0\)</span>; <span class="math inline">\(c=1.05\)</span>; <span class="math inline">\(\mu = 0.0001\)</span>.</p>
+<p>The instance on the left is represented on the right as cell. I annotated the cell for level 2, which is at equilibrium at 42%. We can do the same</p>
+<p>A phenomenon we observe is that certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining.</p>
+<p>Here we can see that <span class="math inline">\(\ell=1\)</span> dominates the fitness landscape level with low <span class="math inline">\(\beta\)</span> and low <span class="math inline">\(\rho\)</span>. The second level dominates in the regimes in between, while <span class="math inline">\(\ell=3\)</span> does best when we have strong <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\rho\)</span>. Main parameters <span class="math inline">\(\beta = 0.16\)</span>; <span class="math inline">\(\rho=0.1\)</span>; <span class="math inline">\(\eta = 0.05\)</span>. Other parameters are fixed at <span class="math inline">\(\eta=1\)</span>; <span class="math inline">\(\alpha=1\)</span>; <span class="math inline">\(\gamma=1\)</span>; <span class="math inline">\(b=-1.0\)</span>; <span class="math inline">\(c=1.05\)</span>; <span class="math inline">\(\mu = 0.0001\)</span>.</p>
 <p>Duration: 1m Cumulative time: 9m</p>
 <ul>
 <li>Look at the numerator.</li>
@@ -653,11 +755,32 @@
 </section>
 <section id="section-14" class="slide level2">
 <h2></h2>
-<h3 id="free-riding-and-call-for-action">Free-riding and Call for action</h3>
+<h3 id="parameter-localization-2">Parameter localization</h3>
+<p><br> <br></p>
 
-<img data-src="figs/fig_free-riding.svg" width="1200" class="r-stretch quarto-figure-center"><aside class="notes">
-<p>Duration: 3m Cumulative time: 12m</p>
-<p>“Big learning curve for weaker institution”. Copying more early on seems not to worth it because it takes time. * gives characteristic time of copying. 1/gives the characteristic scale for inst. to copy or not. Small eta means that groups have time to “flattened the curve”, give it enough time * Fitness of higher inst can go up when small enough eta, giving time to other, weaker institutions to copy them. * Slow institutions are “called upon” to intervene only in specific regimes of the transmission rate, whereas faster institutions tend to explore institutional actions on their own in all regimes. * Slow institutions feel compelled to take action when coupled with sufficiently higher transmission rates that necessitate institutional responses</p>
+<img data-src="figs/dashboard1c.svg" width="1200" class="r-stretch quarto-figure-center"><p><br></p>
+<div style="text-align: center;">
+<p>A certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining <span class="math inline">\(\rightarrow\)</span> institutional localization</p>
+</div>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<h3 id="institutional-free-riding-and-call-for-action">Institutional Free-riding and Call for action</h3>
+
+<img data-src="figs/fig_free-riding.svg" width="200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center; opacity: 0">
+<ul>
+<li><span class="math inline">\(I_\ell\)</span> is the equilibrium prevalence</li>
+<li><span class="math inline">\(\beta\)</span> transmission rate</li>
+<li><span class="math inline">\(\eta=0.05\)</span> is a relatively fast copying rate!</li>
+</ul>
+</div>
+<aside class="notes">
+<p>With this final result, we show how institutions can decide to not pay the cost to enforce stronger policies, benefiting from institutions who do, and we come back to how more of a bad things can actually help.</p>
+<!-- "Big learning curve for weaker institution". Copying more early on seems not to worth it because it takes time. 
+* \eta gives characteristic time of copying. 1/\eta gives the characteristic scale for inst. to copy or not. Small eta means that groups have time to "flattened the curve", give it enough time 
+* Fitness of higher inst can go up when small enough eta, giving time to other, weaker institutions to copy them.
+* Slow institutions are “called upon” to intervene only in specific regimes of the transmission rate, whereas faster institutions tend to explore institutional actions on their own in all regimes.
+* Slow institutions feel compelled to take action when coupled with sufficiently higher transmission rates that necessitate institutional responses -->
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -670,9 +793,9 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-15" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
-<h3 id="free-riding-and-call-for-action-1">Free-riding and Call for action</h3>
+<h3 id="institutional-free-riding-and-call-for-action-1">Institutional Free-riding and Call for action</h3>
 
 <img data-src="figs/fig_free-ridingA.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center">
 <ul>
@@ -681,33 +804,102 @@
 <li><span class="math inline">\(\eta=0.05\)</span> is a relatively fast copying rate!</li>
 </ul>
 </div>
+<aside class="notes">
+<p>As with the last plot, we plot how the equilibrium prevalence at steady states changes as a function of transmission rate. In this first condition, we show what happens when we have relatively fast imitation rate. This is a typical result where as you increase beta, you get a monotonic increase of prevalence rate.</p>
+<p>Now, what if institutions of different institutional strenghts were by themselves? In other words, how would a world with only weak institutions would behave compared to the scenario when it can copy stronger institutions?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-16" class="slide level2">
+<section id="section-17" class="slide level2">
 <h2></h2>
-<h3 id="free-riding-and-call-for-action-2">Free-riding <span class="strong-fade">and Call for action</span></h3>
+<h3 id="institutional-free-riding-and-call-for-action-2">Institutional Free-riding <span class="strong-fade">and Call for action</span></h3>
 
-<img data-src="figs/fig_free-ridingB.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
+<img data-src="figs/fig_free-ridingB1.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
+<ul>
+<li><span class="math inline">\(\Delta_\ell &lt; 0\)</span>: Institutional Free-riding</li>
+<li><span class="strong-fade"><span class="math inline">\(\Delta_\ell &gt; 0\)</span>: Being exploited</span></li>
+</ul>
+<p>where <span class="math inline">\(\Delta_\ell = (I_\ell - \tilde{I}_\ell)/(I_\ell + \tilde{I}_\ell)\)</span></p>
+</div>
+<aside class="notes">
+<p>This is what this plot show. On the y axis, we have a normalized value that substract <span class="math inline">\(\tilde{I}_{\ell}\)</span>, a world with only institutions of a given level, from the world we have seen so far in which we have policy selection.</p>
+<p>We can see that this world benefit tremendously weaker institutions. For a beta of, say, .10, ther equilibrium prevalence rate are reduced by about 25%.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<h3 id="institutional-free-riding-and-call-for-action-3">Institutional Free-riding <span class="strong-fade">and Call for action</span></h3>
+
+<img data-src="figs/fig_free-ridingB2.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
 <ul>
 <li><span class="math inline">\(\Delta_\ell &lt; 0\)</span>: Institutional Free-riding</li>
 <li><span class="math inline">\(\Delta_\ell &gt; 0\)</span>: Being exploited</li>
 </ul>
 <p>where <span class="math inline">\(\Delta_\ell = (I_\ell - \tilde{I}_\ell)/(I_\ell + \tilde{I}_\ell)\)</span></p>
 </div>
+<aside class="notes">
+<p>Stronger institutions, on their side, would go much better if weaker institutions were not doing badly. And we see this hierarchy of free-riding where stronger institution get exploited by weaker institutions, with middle ones exploiting the one above and being exploited by the one below.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-17" class="slide level2">
+<section id="section-19" class="slide level2">
 <h2></h2>
-<h3 id="free-riding-and-call-for-action-3"><span class="strong-fade">Free-riding and</span> Call for action</h3>
+<h3 id="institutional-free-riding-and-call-for-action-4"><span class="strong-fade">Institutional Free-riding and</span> Call for action</h3>
 
 <img data-src="figs/fig_free-ridingC.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
 <p>More transmission can help when you give time for institutions to copy!</p>
 </div>
 </section>
-<section id="section-18" class="slide level2">
+<section id="section-20" class="slide level2">
 <h2></h2>
-<h3 id="free-riding-and-call-for-action-4">Free-riding and Call for action</h3>
+<h3 id="institutional-free-riding-and-call-for-action-5"><span class="strong-fade">Institutional Free-riding and</span> Call for action</h3>
+
+<img data-src="figs/fig_free-ridingC1.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
+<p>More transmission can help when you give time for institutions to copy!</p>
+</div>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<h3 id="institutional-free-riding-and-call-for-action-6"><span class="strong-fade">Institutional Free-riding and</span> Call for action</h3>
+
+<img data-src="figs/fig_free-ridingC2.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
+<p>More transmission can help when you give time for institutions to copy!</p>
+</div>
+</section>
+<section id="section-22" class="slide level2">
+<h2></h2>
+<h3 id="institutional-free-riding-and-call-for-action-7">Institutional Free-riding and Call for action</h3>
 
 <img data-src="figs/fig_free-ridingD.svg" width="1200" class="r-stretch quarto-figure-center"><div class="not-as-small" style="text-align: center;">
-<p>Can also be seen with intergroup coupling.</p>
+<p>With the call for action, we see a bit more free-riding as well!</p>
 </div>
 </section>
 <section id="food-for-thought" class="slide level2">

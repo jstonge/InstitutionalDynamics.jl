@@ -6,7 +6,7 @@ email: jstonge1@uvm.edu
 twitter: jonSO_
 format: 
   revealjs:
-    theme: [default, custom.scss]
+    theme: default
     logo: figs/vermont_CSDS.png
     css: style.css
     footer: "Jonathan St-Onge - Netsci2023"
@@ -17,10 +17,8 @@ editor: visual
 
 ##
 
-### More spread can help
-
-::: {.fragment}
-* In traditional epidemiological studies, higher transmission rates most often lead to higher steady-state prevalence. [More spread, more infection.]{.fragment .highlight-red}
+::: {.fragment .important-black}
+In traditional epidemiological studies, higher transmission rates means higher steady-state prevalence
 :::
 
 :::: {.columns}
@@ -37,59 +35,57 @@ editor: visual
 
 ::::
 
+::: {.fragment .important-black}
+$\rightarrow$ But we know this isn't the truth. Institutions emerge to fight an epidemic.
+:::
+
 ::: {.fragment}
-* But we know this isn't the truth. Institutions (hopefully) will emerge to fight an epidemic.
+![](https://api.hub.jhu.edu/factory/sites/default/files/styles/landscape/public/health_dept_022521_impact.jpg){fig-align="center" width=300}
 :::
 
 ::: {.notes}
 Today i'll talking about the interplay of adaptive behaviors and institutions in the study of contagions.
 
-Let me begin with a bold statement. Here it is. Higher transmission rate of an undesirable agent in a population can help reduce its overall equilibrium prevalence. 
+In contagion studies, we are interested in understanding the spread of an undesirable agents in a population.
 
-This statement, arguably, goes against much of what we learn in most contagion studies. In contagion studies, we typically assume, very reasonably, that the outcome of a contagion is determined by individuals infecting each other. As more sick people interact, you get More spread, more infection.
+When modeling this spread, we assume that the outcome of a contagion is determined by the rate at which individuals infect each other. As you get more infected people in your system, you end up with higher prevalence rate. 
 
-This is true for disease transmission, but also misinformation on social media and social contagion more generally.
+This is how we model disease transmission, but also misinformation on social media and social contagion more generally.
 
-But we know the story isn't right. As contagions take off, relevant institutions will (hopfully) step in to try control the spread of the pathogen. 
+But we know the story isn't right. As contagions take off, relevant institutions will (hopfully) step in to try control the spread of the undesirable agent. 
 
-Duration: 1m
-Cumulative time: 1m
+More of a bad thing forces institutions to do something about it.
+
+A second aspect of traditional modeling I want to challenge today is that to model institutions we don't need complex mechanisms.
 :::
-
 
 ## 
 
 ### Contagion dynamics on higher-order networks 
 
 
-::: {.fragment}
-
 :::: {.columns}
 
-::: {.column width="60%"}
-* During the COVID-19 pandemic, we've been thinking a lot about how the structure of the network changes.
-
+::: {.column width="50%" .fragment style="text-align: center;"}
+![Classic models are simple](figs/billard_ball.png){width=255 fig-align="center"}
 :::
 
-::: {.column width="40%"}
-![](https://coronavirus.jhu.edu/images/assets/contact-tracing_476f0cc525.jpeg)
+::: {.column width="50%" .fragment style="text-align: center;"}
+![Complex models are [agent-based]{.important-maroon}](figs/complex_model.png)
 :::
 
-::::
-
 :::
-
 :::: {.columns}
 
 ::: {.column width="60%" .fragment}
-* Higher-order networks make it possible to study the [impact of group-level dynamics and norms]{.important-maroon} on contagion.
+$\rightarrow$ Higher-order networks make it possible to study the [impact of group-level dynamics and norms]{.important-maroon} on contagion.
 :::
 ::: {.column width="40%"}
 ::: {.r-stack}
 
-![](https://i.ytimg.com/vi/z_7Tcfeb1X0/mqdefault.jpg){.fragment width="450"}
-
 ![](figs/beach.jpg){.fragment width="450"}
+
+![](figs/death.jpg){.fragment width="450"}
 
 ![](figs/settings.jpg){.fragment width="450"}
 
@@ -98,34 +94,55 @@ Cumulative time: 1m
 ::::
 
 ::: {.notes}
-The fact that institutions emerge as contagions get out of control is rarely taking into account in our traditional epidemiological toolbox.
+Here what we learn in class.
 
-For instance, during the COVID-19 pandemics, many models focused on the interplay of individual behaviors and network structure. Think about contact tracing studies studying how the networks change as people cut ties in response to the spread of the disease (see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9367716/). 
+Classic models are simple. We assume a well-mixed population bouncing on each other, infecting when they get into contact.
 
-Here we will show that by looking at higher-order networks we can study the impact of group-level dynamics and norms during a contagion. 
+Complex models are agent-based. Once you are tired of simple bouncing balls, you get into the agent-based module of the class. We feel powerful at modeling reality, including each relevant detail one might care about in a contagion. Then we get to the analysis part, we are at lost.
 
-Our working assumption is that in fighting epidemics, we rely neither completely on top-down interventions or individual adaptations, but a mixed of the two that takes the form of local institutions such as public health departments or moderator teams.
+This naturally lead to studying how the structure of the network changes. As an example, contact tracing during the COVID-19 pandemic was the popular in many studies. We wanted to trace the spread among individuals and how it was changing the network.
 
-So in our case, we'll keep the network as it is. But we'll assume that *groups* adopt or reject different policies by taking inspiration from the successes and failures of other groups.
+Instead of tweaking the network structure to see how individuals adapt to a contagion, our idea was to start with group norms and see how they can hinder contagion.
 
-As such, we assume that groups have dynamics as much as individuals. Some, most behaviors only make sense in the light of norms and social identity dynamics.
+In other words, we keep the network as it is. But we'll assume that *groups* have dynamics. 
 
-As a striking example, you might remember that in the middle of the pandemic, some people gathered on The Corona del Mar State Beach. This is an example of how groups norms inform individuals during a contagion.
+Maybe some of you remember this photo of people at the beach at the peak of the pandemic. You might remember this guy showing up. How are we to understand what is happenning here. One option would be to model each agent on this beach on their own. Or we can simply see two groups here, with different norms about the right behaviors to adopt during a contagion. This is what I mean when I say that see the forest of groups before the tress of individuals
 
-In our model we go even further and assume that even inhabiting the same environment can count to be part of a group. Groups sharing a bad ventilation or sewage systems will impact how they are gonna do during a contagion.
+Even inhabiting the same environment can count to be part of a group. Groups sharing a bad ventilation or sewage systems will impact how they are gonna do during a contagion.
 
-How did we study groups, concretely?
+<!-- We want to know about the effect of humanly devised constraints that shape human interaction, as Alfred North would put it.  
 
-Duration: .5m
-Cumulative time: 1.5m
+Most behaviors only make sense in the light of social identity dynamics and a simply way to tackle this problem is to . -->
+
+
 :::
 
 ## Questions:
 
- * what happens if institutions can hinder contagions?
- * what is the impact of timescales and coupling between groups on the co-evolution of contagions and institutions
+ * what happens if institutions of varying strength can hinder contagions?
+ * what is the impact of timescales and coupling between groups on the co-evolution of contagions and institutions?
 
 ![](figs/question.png){fig-align="center"}
+
+
+::: {.notes}
+What if we let institutions of varying institutional strength try to reduce the spread of a contagion? Here this is really a question about the co-evolution of policy and collective dynamics.
+
+[READ QUESTION 2]
+
+Here I want to highlight on the importance of timescales for our approach. 
+
+Fast and slow institutions can will have different impact on different epidemic scenarios. 
+
+A related subquestion in our work was "how do we assess the effectiveness of institutions while they operate on longer time scale than our micro perspective". These questions draw their inspiration from the studies of institutional change and common-pool ressources. 
+
+The intuition here is similar to that of how large firms produce more long-term, routined innovations while small firms capitalize on disruptive innovation. How does this idea translate when we add policy selection at group level.
+
+:::
+
+## {background-color="black"}
+
+[The model]{.new-center-big}
 
 ## 
 
@@ -135,10 +152,26 @@ Cumulative time: 1.5m
 
 :::: {style="text-align: center;"}
 We keep track of infected $i$ in groups of fixed size.
+
+<br>
+
+[$\mathbin{\color{#004F80}{R}} = \rho \sum _{i,\ell} i G_{i,\ell}$]{.smaller}[\ and  $Z_\ell = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.strong-fade-math-smaller}
 :::
 
 ::: {.notes}
-Lets start with a single group. In our model, we care about how many infected people are in your groups. Groups have a fixed size. Individuals can get infected at a rate beta and recover at a rate gamma. Groups can put in place norms and policies to limit contagion. We will represent that through an abstract institutional level $\ell$ which translate to a _local_ transmission rate $\beta(\ell) = \beta_0\ell^{-\alpha}$. Stronger $\ell$ means smaller rate.
+Lets start with a single group. 
+
+In our model, we care about how many infected people are in your groups. Groups have a fixed size. Individuals can get infected at a rate beta and recover at a rate gamma. Groups can put in place norms and policies to limit contagion. 
+
+We will represent that through an abstract institutional level $\ell$ which translate to a _local_ transmission rate $\beta(\ell) = \beta_0\ell^{-\alpha}$. Stronger $\ell$ means smaller rate.
+
+Individuals are infected at a rate $\beta(\ell)$
+
+The term at the bottom show show how we break down our systems into subsystems. 
+
+Whereas $\beta_0 \ell^{-\alpha}$ is the internal rate of transmission, $R$ is the possible contact with infected in other groups. Assuming random mixing between groups, it is thes product of an inter-group coupling $\rho$ and the expected number of infected units in a randomly selected group. 
+
+(∑_{i,ℓ} i*G_{i,ℓ}) is the expected number of infected units in a randomly selected group.
 
 Duration: 1.5m
 Cumulative time: 3m
@@ -153,18 +186,26 @@ Cumulative time: 3m
 
 :::: {style="text-align: center;"}
 The rate of infection depends on institutional level $\ell$
+
+<br>
+
+[$R = \rho \sum _{i,\ell} i G_{i,\ell}$]{.smaller}[\ and $\color{#e6872e}{Z_\ell} = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.not-as-small}
 :::
 
 ::: {.notes}
-Stronger institutions are better at reducing transmission, but this require institutional effort and resources. To assess if the cost is worth it, groups copy each other based on perceived fitness $Z$. Groups move to various institutional strenght proportionally to the relative fitness of different levels. 
+Stronger institutions are better at reducing transmission, but this require institutional effort and resources. 
 
-For instance, think of Winoski wondering if it should adopt the mask mandates. Winoski looks at Burlington to see how it is going. If Burly is doing much better, Winoski might decide to adopt this policy as well. Of course, if things are going so well, maybe Winoski could prefer to not put the effort and take advantage that Burlington is doing so well.
+To assess if the cost is worth it, groups copy each other based on perceived fitness $Z$. Groups move to various institutional strenght proportionally to the relative fitness of different levels. 
+
+Institutional strength might be how willing a public health department is willing to invest in adopting the mask mandates, or whether a team of moderators want to enforce a code of conducts. Importantly, we are talking about institutions of similar size that adopt stronger policies. We are not comparing the federal public health departments with the city-level one.
+
+Note that this group-level policy selection is basically a random walk in fitness space. We do not assume about group copying strategy anything fancy at the moment. We could though.
 
 Duration: 1.5m
 Cumulative time: 4.5m
 :::
 
-## 
+<!-- ## 
 
 ### [Diffusion events]{.important-blue} [with policy selection process]{.strong-fade}
 
@@ -188,19 +229,6 @@ Cumulative time: 4.5m
 
 
 [where $Z_\ell = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.strong-fade-math-smaller} [and $\mathbin{\color{#004F80}{R}} = \rho \sum _{i,\ell} i G_{i,\ell}$]{.smaller}
-
-::: {.notes}
-Here is the math for those of you are interested. 
-
-I won't go into the details beside mentionning that this takes the form of master equations. What we track here is the fraction of groups with institional level $\ell$ and $i$ infected. 
-
-What makes it an master equation is that we track the evolution of the distribution of all possible states for a group, accounting for the transition between any two adjacent states. 
-
-The term at the bottom show show how we break down our systems into subsystems. Whereas $\beta_0 \ell^{-\alpha}$ is the internal rate of transmission, $R$ is the possible contact with infected in other groups. Assuming random mixing between groups, it is thes product of an inter-group coupling $\rho$ and the expected number of infected units in a randomly selected group.
-
-Duration: 1.5m
-Cumulative time: 5m
-:::
 
 ## 
 
@@ -227,12 +255,7 @@ Cumulative time: 5m
 
 [where $\color{#e6872e}{Z_\ell} = \dfrac{\sum_{i} \textrm{exp}\left(-bi - c\ell\right) G_{i,\ell}}{\sum_{i} G_{i,\ell}} \;$]{.not-as-small} [and $R = \rho \sum _{i,\ell} i G_{i,\ell}$]{.smaller}
 
-::: {.notes}
-Here is the math for the policy selection process. Note that group selection is basically a random walk in fitness space. We do not assume social learning strategies at the moment. We could though.
-
-Duration: 1.5m
-Cumulative time: 5m
-:::
+-->
 
 ## 
 
@@ -240,12 +263,22 @@ Cumulative time: 5m
 
 ::: {.new-center}
 $$
-\frac{d}{dt}G_{i,\ell}= \frac{d}{dt}G_{i,\ell}^{\textrm{epi}} + \frac{d}{dt}G_{i,\ell}^{\textrm{sel}} \
+\frac{d}{dt}G_{i,\ell}= \frac{d}{dt} \mathbin{\color{#004F80}{G_{i,\ell}^{\textrm{epi}}}} + \frac{d}{dt} \color{#e6872e}{G_{i,\ell}^{\textrm{sel}}} \
 $$
 
 :::
 
 [Simple enough!]{.fragment .new-center-small}
+
+::: {.notes}
+The overall dynamics of our model is this epidemiological diffusion events together with a selection process on policies.
+
+We track the fraction of groups with institional level $\ell$ and $i$ infected. 
+:::
+
+## {background-color="black"}
+
+[Results]{.new-center-big}
 
 ## 
 
@@ -255,12 +288,11 @@ $$
 
 ::: {.notes}
 
-On the 
+In this first result, I want to show how our model is able to repdroduce a diversity of real-world scenarios.  
 
-1. Under fast imitation, strong but costly institutions can fail to emerge and an emerging epidemic becomes highly endemic
-2.  Weaker institutions can take time to adjust to an epidemic, leading to large epidemic waves converging to an endemic state (light blue): cigarette consumption \cite{caplow2001first}.
-3. Under slow imitation, strong institutions can control an emerging epidemic after an initial large wave of cases, eventually leading to very low endemicity (purple curves): HIV, Syphilis \cite{caplow2001first}.
+We will look at this 4x4 table showing the combination of fast institutions, or institutions that copy each other at a faster rate, relative to transmission rate, and known scenarios epidemic such as eradication and endemic.
 
+For each plot, i'll show how prevalence and the proportion of each institutions change in time. 
 :::
 
 ## 
@@ -269,11 +301,30 @@ On the
 
 ![](figs/regimesA.svg){fig-align="center" width=1200}
 
+::: {.notes}
+For instance, this first plot show how fast institution are able to contain weak epidemic. Note that in this case, the only thing we need are relative weak institutions. In the steady states, we mostly have institutions of level 1 and 2.
+:::
+
+##
+
+### Thinking fast and slow
+
+![](figs/regimesA2.svg){fig-align="center" width=1200}
+
+::: {.notes}
+In the second plot, we have a stronger epidemic with a slower copying rate. 
+Strong institutions will eventually control an emerging epidemic after an initial large wave of cases, eventually leading to very low endemicity. 
+:::
+
 ## 
 
 ### Thinking fast and slow
 
 ![](figs/regimesB.svg){fig-align="center" width=1200}
+
+::: {.notes}
+In the next row, we have the endemic scenario, or when we simply accept to live with a disease. Under fast imitation, strong but costly institutions can fail to emerge and an emerging epidemic becomes highly endemic. Think about Chlamydia, for instance.
+:::
 
 ## 
 
@@ -281,12 +332,9 @@ On the
 
 ![](figs/regimesC.svg){fig-align="center" width=1200}
 
-## 
-
-### Thinking fast and slow
-
-![](figs/regimesD.svg){fig-align="center" width=1200}
-
+::: {.notes}
+Lastly, we have slow institutions in endemic scenario. Comapred to the eradication scenario, here strong institutions temporarily control an existing outbreak before partially relaxing. This lead to a situation where we do not eradicate the disease.
+:::
 
 ## 
 
@@ -300,7 +348,11 @@ On the
 <br>
 
 ::: {style="text-align: center;"}
-Now lets shift our focus from time evolution dynamics to what happens at steady-states..
+Now lets shift our focus from time evolution dynamics to what happens at steady-states... 
+:::
+
+::: {.notes}
+On the left plot, we can see the time evolution for one scenario where beta is .16, and intergroup coupling and copying rate are both high. Weak institutions are not up to the task, and the scenario is dominated by institution of level 2 and 3.
 :::
 
 ## 
@@ -315,12 +367,16 @@ Now lets shift our focus from time evolution dynamics to what happens at steady-
 <br>
 
 ::: { style="text-align: center;"}
-A certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining $\rightarrow$ institutional localization
+Regions in parameter spaces come to be dominated by particular level of institutions
 :::
 
 
 ::: {.notes}
-Example of institutional localization--when certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining. Here we can see that $\ell=1$  dominates the fitness landscape level with low $\beta$ and low $\rho$. The second level dominates in the regimes in between, while $\ell=3$ does best when we have strong $\beta$ and $\rho$. Main parameters $\beta = 0.16$; $\rho=0.1$; $\eta = 0.05$. Other parameters are fixed at $\eta=1$; $\alpha=1$; $\gamma=1$; $b=-1.0$; $c=1.05$; $\mu = 0.0001$.
+The instance on the left is represented on the right as cell. I annotated the cell for level 2, which is at equilibrium at 42%. We can do the same 
+
+A phenomenon we observe is that certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining. 
+
+Here we can see that $\ell=1$  dominates the fitness landscape level with low $\beta$ and low $\rho$. The second level dominates in the regimes in between, while $\ell=3$ does best when we have strong $\beta$ and $\rho$. Main parameters $\beta = 0.16$; $\rho=0.1$; $\eta = 0.05$. Other parameters are fixed at $\eta=1$; $\alpha=1$; $\gamma=1$; $b=-1.0$; $c=1.05$; $\mu = 0.0001$.
 
 Duration: 1m
 Cumulative time: 9m
@@ -335,28 +391,47 @@ Cumulative time: 9m
  * This brings us to the call for action...
 :::
 
+##
+
+### Parameter localization
+
+<br>
+<br>
+
+![](figs/dashboard1c.svg){fig-align="center" width=1200}
+
+<br>
+
+::: { style="text-align: center;"}
+A certain level of institutionalization is required to maintain the behaviour locally, but only some groups become self-sustaining $\rightarrow$ institutional localization
+:::
+
 
 ## 
 
-### Free-riding and Call for action
+### Institutional Free-riding and Call for action
 
-![](figs/fig_free-riding.svg){fig-align="center" width=1200}
+![](figs/fig_free-riding.svg){fig-align="center" width=200}
 
+::: {.not-as-small style="text-align: center; opacity: 0"}
+* $I_\ell$ is the equilibrium prevalence
+* $\beta$ transmission rate 
+* $\eta=0.05$ is a relatively fast copying rate!
+:::
 
 ::: {.notes}
-Duration: 3m
-Cumulative time: 12m
+With this final result, we show how institutions can decide to not pay the cost to enforce stronger policies, benefiting from institutions who do, and we come back to how more of a bad things can actually help.
 
-"Big learning curve for weaker institution". Copying more early on seems not to worth it because it takes time. 
+<!-- "Big learning curve for weaker institution". Copying more early on seems not to worth it because it takes time. 
 * \eta gives characteristic time of copying. 1/\eta gives the characteristic scale for inst. to copy or not. Small eta means that groups have time to "flattened the curve", give it enough time 
 * Fitness of higher inst can go up when small enough eta, giving time to other, weaker institutions to copy them.
 * Slow institutions are “called upon” to intervene only in specific regimes of the transmission rate, whereas faster institutions tend to explore institutional actions on their own in all regimes.
-* Slow institutions feel compelled to take action when coupled with sufficiently higher transmission rates that necessitate institutional responses
+* Slow institutions feel compelled to take action when coupled with sufficiently higher transmission rates that necessitate institutional responses -->
 :::
 
 ## 
 
-### Free-riding and Call for action
+### Institutional Free-riding and Call for action
 
 ![](figs/fig_free-ridingA.svg){fig-align="center" width=1200}
 
@@ -366,12 +441,36 @@ Cumulative time: 12m
 * $\eta=0.05$ is a relatively fast copying rate!
 :::
 
+::: {.notes}
+As with the last plot, we plot how the equilibrium prevalence at steady states changes as a function of transmission rate. In this first condition, we show what happens when we have relatively fast imitation rate. This is a typical result where  as you increase beta, you get a monotonic increase of prevalence rate.
+
+Now, what if institutions of different institutional strenghts were by themselves? In other words, how would a world with only weak institutions would behave compared to the scenario when it can copy stronger institutions?
+:::
 
 ## 
 
-### Free-riding [and Call for action]{.strong-fade}
+### Institutional Free-riding [and Call for action]{.strong-fade}
 
-![](figs/fig_free-ridingB.svg){fig-align="center" width=1200}
+![](figs/fig_free-ridingB1.svg){fig-align="center" width=1200}
+
+::: {.not-as-small style="text-align: center;"}
+* $\Delta_\ell < 0$: Institutional Free-riding 
+* [$\Delta_\ell > 0$: Being exploited]{.strong-fade}
+
+where $\Delta_\ell = (I_\ell - \tilde{I}_\ell)/(I_\ell + \tilde{I}_\ell)$
+:::
+
+::: {.notes}
+This is what this plot show. On the y axis, we have a normalized value that substract $\tilde{I}_{\ell}$, a world with only institutions of a given level, from the world we have seen so far in which we have policy selection. 
+
+We can see that this world benefit tremendously weaker institutions. For a beta of, say, .10, ther equilibrium prevalence rate are reduced by about 25%.
+:::
+
+## 
+
+### Institutional Free-riding [and Call for action]{.strong-fade}
+
+![](figs/fig_free-ridingB2.svg){fig-align="center" width=1200}
 
 ::: {.not-as-small style="text-align: center;"}
 * $\Delta_\ell < 0$: Institutional Free-riding 
@@ -380,9 +479,14 @@ Cumulative time: 12m
 where $\Delta_\ell = (I_\ell - \tilde{I}_\ell)/(I_\ell + \tilde{I}_\ell)$
 :::
 
+::: {.notes}
+Stronger institutions, on their side, would go much better if weaker institutions were not doing badly. And we see this hierarchy of free-riding where stronger institution get exploited by weaker institutions, with middle ones exploiting the one above and being exploited by the one below.
+:::
+
+
 ## 
 
-### [Free-riding and]{.strong-fade} Call for action
+### [Institutional Free-riding and]{.strong-fade} Call for action
 
 ![](figs/fig_free-ridingC.svg){fig-align="center" width=1200}
 
@@ -390,14 +494,35 @@ where $\Delta_\ell = (I_\ell - \tilde{I}_\ell)/(I_\ell + \tilde{I}_\ell)$
 More transmission can help when you give time for institutions to copy!
 :::
 
+
 ## 
 
-### Free-riding and Call for action
+### [Institutional Free-riding and]{.strong-fade} Call for action
+
+![](figs/fig_free-ridingC1.svg){fig-align="center" width=1200}
+
+::: {.not-as-small style="text-align: center;"}
+More transmission can help when you give time for institutions to copy!
+:::
+
+## 
+
+### [Institutional Free-riding and]{.strong-fade} Call for action
+
+![](figs/fig_free-ridingC2.svg){fig-align="center" width=1200}
+
+::: {.not-as-small style="text-align: center;"}
+More transmission can help when you give time for institutions to copy!
+:::
+
+## 
+
+### Institutional Free-riding and Call for action
 
 ![](figs/fig_free-ridingD.svg){fig-align="center" width=1200}
 
 ::: {.not-as-small style="text-align: center;"}
-Can also be seen with intergroup coupling.
+With the call for action, we see a bit more free-riding as well!
 :::
 
 

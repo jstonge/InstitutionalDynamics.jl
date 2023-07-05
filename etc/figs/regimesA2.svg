@@ -7,7 +7,7 @@
    width="584.53601"
    height="454.71332"
    viewBox="0 0 584.53601 454.71332"
-   sodipodi:docname="regimesB.svg"
+   sodipodi:docname="regimesA2.svg"
    inkscape:version="1.2.2 (1:1.2.2+202305151914+b0a8486541)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -2553,8 +2553,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.5794197"
-     inkscape:cx="216.21865"
-     inkscape:cy="251.67471"
+     inkscape:cx="250.40843"
+     inkscape:cy="251.04157"
      inkscape:window-width="1920"
      inkscape:window-height="1054"
      inkscape:window-x="0"
@@ -3864,7 +3864,7 @@
     </g>
     <g
        id="g1100"
-       style="opacity:1">
+       style="opacity:0.16717418">
       <g
          id="g1102"
          clip-path="url(#clipPath1106)">
@@ -4201,6 +4201,25 @@
         </g>
       </g>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text4654-6"
+       x="206.97899"
+       y="167.97331"><tspan
+         x="206.97899 209.38698 211.03499 217.459"
+         y="167.97331"
+         sodipodi:role="line"
+         id="tspan4652-2">time</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text4658-9"
+       x="221.55501"
+       y="167.97331"><tspan
+         x="221.55501"
+         y="167.97331"
+         id="tspan4656-1">→</tspan></text>
     <g
        id="g1388">
       <text
@@ -4219,7 +4238,7 @@
     </g>
     <g
        id="g14369"
-       style="opacity:1">
+       style="opacity:0.16717418">
       <g
          id="g1396">
         <g
@@ -8294,7 +8313,7 @@
          id="tspan4830">(η=0.05; β=0.06)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;white-space:pre;inline-size:28.6234;display:inline;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;white-space:pre;inline-size:28.6234;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="text4838"
        x="129.14812"
        y="19.527575" />
@@ -8338,28 +8357,25 @@
          x="124.7132"
          y="187.39143"
          id="tspan4856">(</tspan></text>
-    <g
-       id="g5529">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;opacity:1"
-         id="text4862"
+    <text
+       xml:space="preserve"
+       style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;opacity:1"
+       id="text4862"
+       x="126.96721"
+       y="187.39142"><tspan
          x="126.96721"
-         y="187.39142"><tspan
-           x="126.96721"
-           y="187.39142"
-           id="tspan4860">η</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;opacity:1"
-         id="text4866"
-         x="131.02721"
-         y="187.39142"><tspan
-           x="131.02721 135.2552 139.3432 140.8412 145.08321"
-           y="187.39142"
-           sodipodi:role="line"
-           id="tspan4864">=5.0)</tspan></text>
-    </g>
+         y="187.39142"
+         id="tspan4860">η</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;opacity:1"
+       id="text4866"
+       x="131.02721"
+       y="187.39142"><tspan
+         x="131.02721 135.2552 139.3432 140.8412 145.08321"
+         y="187.39142"
+         sodipodi:role="line"
+         id="tspan4864">=5.0)</tspan></text>
     <text
        x="201.24957"
        dx="0.14130387"
@@ -8394,7 +8410,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-28);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="68.476142"
          y="36.256117"
-         id="tspan15839">ℓ=1</tspan></text>
+         id="tspan6672">ℓ=1</tspan></text>
     <rect
        width="1.0520444%"
        height="0.44692251%"
@@ -8409,7 +8425,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-7-9);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.744032"
          y="36.256117"
-         id="tspan15841">ℓ=2</tspan></text>
+         id="tspan6674">ℓ=2</tspan></text>
     <rect
        width="1.0520444%"
        height="0.44654924%"
@@ -8424,7 +8440,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-2-7);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.589443"
          y="36.256117"
-         id="tspan15843">ℓ=3</tspan></text>
+         id="tspan6676">ℓ=3</tspan></text>
     <rect
        width="1.0520444%"
        height="0.44658324%"
@@ -8439,7 +8455,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-23-3);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.513607"
          y="36.256117"
-         id="tspan15845">ℓ=4</tspan></text>
+         id="tspan6678">ℓ=4</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8454,7 +8470,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272993);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.463566"
          y="37.535402"
-         id="tspan15847">ℓ=1</tspan></text>
+         id="tspan6680">ℓ=1</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8469,7 +8485,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272995);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="66.646511"
          y="37.535402"
-         id="tspan15849">ℓ=2</tspan></text>
+         id="tspan6682">ℓ=2</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8484,7 +8500,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272997);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="66.473985"
          y="37.535402"
-         id="tspan15851">ℓ=3</tspan></text>
+         id="tspan6684">ℓ=3</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8499,6 +8515,13 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272999);display:inline;opacity:1;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="66.38935"
          y="37.535402"
-         id="tspan15853">ℓ=4</tspan></text>
+         id="tspan6686">ℓ=4</tspan></text>
+    <ellipse
+       style="fill:none;stroke:#ff0000;stroke-width:0.947669;stroke-dasharray:5.68601, 5.68601;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"
+       id="path2747"
+       cx="213.79636"
+       cy="91.372925"
+       rx="23.960297"
+       ry="69.267784" />
   </g>
 </svg>
