@@ -92,6 +92,17 @@
   transform: translate(-50%, -50%);
 }
 
+.new-center-medium {
+  color: white;
+  font-size: 75px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  -ms-transform: translate(-35%, -35%);
+  transform: translate(-35%, -35%);
+}
+
 .new-center-big {
   color: white;
   font-size: 100px;

@@ -2552,13 +2552,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.3365296"
-     inkscape:cx="131.31022"
-     inkscape:cy="242.79298"
-     inkscape:window-width="1920"
-     inkscape:window-height="1054"
+     inkscape:zoom="1.8901383"
+     inkscape:cx="240.4586"
+     inkscape:cy="308.44304"
+     inkscape:window-width="1536"
+     inkscape:window-height="811"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="g10">
     <inkscape:page
@@ -5281,7 +5281,8 @@
       </g>
     </g>
     <g
-       id="g2306">
+       id="g2306"
+       style="opacity:0.11908363">
       <g
          id="g2308">
         <g
@@ -5362,7 +5363,8 @@
       </g>
     </g>
     <g
-       id="g2384">
+       id="g2384"
+       style="opacity:0.11908363">
       <g
          id="g2386">
         <g
@@ -7481,7 +7483,8 @@
       </g>
     </g>
     <g
-       id="g4170">
+       id="g4170"
+       style="opacity:0.11908363">
       <g
          id="g4172">
         <g
@@ -7782,7 +7785,8 @@
       </g>
     </g>
     <g
-       id="g4424">
+       id="g4424"
+       style="opacity:0.11908363">
       <g
          id="g4426">
         <g
@@ -7916,7 +7920,8 @@
       </g>
     </g>
     <g
-       id="g4540">
+       id="g4540"
+       style="opacity:0.11908363">
       <g
          id="g4542">
         <g
@@ -8049,7 +8054,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;opacity:0.11908363"
        id="text4654"
        x="415.4205"
        y="340.40817"><tspan
@@ -8059,15 +8064,35 @@
          id="tspan4652">time</tspan></text>
     <text
        xml:space="preserve"
-       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;opacity:0.11908363"
        id="text4658"
        x="429.99652"
        y="340.40817"><tspan
          x="429.99652"
          y="340.40817"
          id="tspan4656">→</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text4654-6"
+       x="211.4489"
+       y="339.90326"><tspan
+         x="211.4489 213.85689 215.5049 221.92891"
+         y="339.90326"
+         sodipodi:role="line"
+         id="tspan4652-7">time</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-variant:normal;font-weight:normal;font-size:8.00002px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text4658-5"
+       x="226.02492"
+       y="339.90326"><tspan
+         x="226.02492"
+         y="339.90326"
+         id="tspan4656-3">→</tspan></text>
     <g
-       id="g4660">
+       id="g4660"
+       style="opacity:0.11908363">
       <g
          id="g4662">
         <g
@@ -8116,7 +8141,8 @@
       </g>
     </g>
     <g
-       id="g4706">
+       id="g4706"
+       style="opacity:0.11908363">
       <g
          id="g4708">
         <g
@@ -8303,7 +8329,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-28);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="68.476142"
          y="36.256117"
-         id="tspan7688">ℓ=1</tspan></text>
+         id="tspan8297">ℓ=1</tspan></text>
     <rect
        width="1.0520444%"
        height="0.44692251%"
@@ -8318,7 +8344,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-7-9);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.744032"
          y="36.256117"
-         id="tspan7690">ℓ=2</tspan></text>
+         id="tspan8299">ℓ=2</tspan></text>
     <rect
        width="1.0520444%"
        height="0.44654924%"
@@ -8333,7 +8359,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-2-7);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.589443"
          y="36.256117"
-         id="tspan7692">ℓ=3</tspan></text>
+         id="tspan8301">ℓ=3</tspan></text>
     <rect
        width="1.0520444%"
        height="0.44658324%"
@@ -8348,7 +8374,7 @@
        style="font-size:11.9471px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect258249-23-3);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.513607"
          y="36.256117"
-         id="tspan7694">ℓ=4</tspan></text>
+         id="tspan8303">ℓ=4</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8363,7 +8389,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272993);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="67.463566"
          y="37.535402"
-         id="tspan7696">ℓ=1</tspan></text>
+         id="tspan8305">ℓ=1</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8378,7 +8404,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272995);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="66.646511"
          y="37.535402"
-         id="tspan7698">ℓ=2</tspan></text>
+         id="tspan8307">ℓ=2</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8393,7 +8419,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272997);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="66.473985"
          y="37.535402"
-         id="tspan7700">ℓ=3</tspan></text>
+         id="tspan8309">ℓ=3</tspan></text>
     <rect
        width="1.0520403%"
        height="0.37632746%"
@@ -8408,7 +8434,7 @@
        style="font-size:13.3333px;font-family:'SF Pro';-inkscape-font-specification:'SF Pro';text-align:center;white-space:pre;shape-inside:url(#rect272999);display:inline;fill:#000000;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;stop-color:#000000"><tspan
          x="66.38935"
          y="37.535402"
-         id="tspan7702">ℓ=4</tspan></text>
+         id="tspan8311">ℓ=4</tspan></text>
     <text
        xml:space="preserve"
        style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'SF Pro';-inkscape-font-specification:SFPro-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"

@@ -1,4 +1,5 @@
 using Distributed
+using ProgressMeter
 
 @everywhere include("sourcesink2.jl")
 
@@ -46,7 +47,7 @@ t_max = 10_000
 L = 4
 
 ηs = [5.,0.05,0.0005]
-p = [0.17, 1., 2., 1., 0.05, ηs[1], -1., 1., 0.0001]  # β, ξ, α, γ, ρ, η, b, c, μ
+p = [0.16, 1., 1., 1., 0.05, ηs[1], -1., 1., 0.0001]  # β, ξ, α, γ, ρ, η, b, c, μ
 lvl_1_inf = true
 
 # i.c. = 1
@@ -68,7 +69,8 @@ p[6] = ηs[2]
 sol = run_source_sink2(p, L=L, lvl_1_inf=lvl_1_inf)
 res, res_prop = parse_sol(sol)
 
-# plot_both(res, res_prop, global_pal="deepskyblue", out="SlowInst_endemic.pdf")
+plot_both(res, res_prop, global_pal="deepskyblue", out=nothing)
+title!(join(p, "_"))
 
 global_freq2 = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:t_max]
 plot!(1:t_max, global_freq2[1:t_max], width = 4, 
@@ -164,7 +166,7 @@ ylabel!(L"prop($\ell$)")
 
 pl_tot = plot(pl1, pl2, layout = @layout([a b]), size=(1000, 350))
 plot!(margin=10mm)
-savefig("figs/fast_imit_ic1_green.pdf")
+# savefig("figs/fast_imit_ic1_green.pdf")
 
 
 
@@ -320,6 +322,7 @@ p = [0.1, 1., 1., 1., 0.05, η_lowest, -1., 1., 0.0001]  # β, ξ, α, γ, ρ, �
 lvl_1_inf=false
 t_max = 9999
 results = zeros(length(βs))
+
 @showprogress for i in eachindex(βs)
   p[1] = βs[i]
   sol = run_source_sink2(p, lvl_1_inf=lvl_1_inf)
