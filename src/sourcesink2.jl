@@ -1,10 +1,11 @@
-using Distributed # When we don't run from commandline, http://cecileane.github.io/computingtools/pages/notes1209.html
-using JLD
-N_PROC = 0 # add more process, if wanted. Could be specify from commandline. 
-addprocs(N_PROC) 
-@everywhere using ArgParse, Distributions, StatsBase, OrdinaryDiffEq, RecursiveArrayTools, DataFrames, SQLite, Plots, Plots.Measures, LaTeXStrings
+import Distributions
+import RecursiveArrayTools
+import OrdinaryDiffEq
+import ArgParse
+import SQLite
+import DataFrames
 
-@everywhere include("helpers.jl")
+include("helpers.jl")
 
 function parse_commandline()
     s = ArgParse.ArgParseSettings()
@@ -64,7 +65,7 @@ function parse_commandline()
     return ArgParse.parse_args(s)
 end
 
-@everywhere  function initialize_u0(;n::Int=20, L::Int=6, M::Int=100, p::Float64=0.001,
+function initialize_u0(;n::Int=20, L::Int=6, M::Int=100, p::Float64=0.001,
   lvl_1_inf::Bool=false)
   G = zeros(L, n+1)
 
@@ -93,57 +94,45 @@ end
 end
 
 # function to switch between simple (ξ = 1) and complex contagion (ξ ≠ 1)
-@everywhere  g(x; ξ=1.) = x^ξ # for x ∈ ℕ ⇒ ξ = 1: linear growth; 0 < ξ < 1: sublinear growth; ξ > 1: superlinear growth
+g(x; ξ=1.) = x^ξ # for x ∈ ℕ ⇒ ξ = 1: linear growth; 0 < ξ < 1: sublinear growth; ξ > 1: superlinear growth
 
-@everywhere function source_sink2!(du, u, p, t)
+function source_sink2!(du, u, p, t)
     G, L, n = u, length(u.x), length(first(u.x))
     β, ξ, α, γ, ρ, η, b, c, μ = p
     Z, pop, R = zeros(L), zeros(L), 0.
 
     # Calculate mean-field coupling and observed fitness landscape
     for ℓ in 1:L
-        n_infect = collect(0:(n-1))
-        Z[ℓ]    = sum(exp.(b*n_infect .- c*(ℓ-1)) .* G.x[ℓ]) 
+        n_adopt = collect(0:(n-1))
+        Z[ℓ]    = sum(exp.(-b*n_adopt .- c*(ℓ-1)) .* G.x[ℓ]) 
         pop[ℓ]  = sum(G.x[ℓ])
-        R      += sum(ρ * n_infect .* G.x[ℓ]) 
+        R      += sum(ρ * n_adopt .* G.x[ℓ]) 
         pop[ℓ] > 0.0 && ( Z[ℓ] /= pop[ℓ] ) 
       end
       
       for ℓ = 1:L, i = 1:n
-        n_infect, gr_size = i-1, n-1
+        n_adopt, gr_size = i-1, n-1
         # Diffusion events
-        du.x[ℓ][i] = -γ*n_infect*G.x[ℓ][i] - β*(ℓ^-α)*g(n_infect+R, ξ=ξ)*(gr_size-n_infect)*G.x[ℓ][i]
-        n_infect > 0 && ( du.x[ℓ][i] += β*(ℓ^-α)*g(n_infect-1+R, ξ=ξ)*(gr_size-n_infect+1)*G.x[ℓ][i-1])
-        n_infect < gr_size && ( du.x[ℓ][i] +=  γ*(n_infect+1)*G.x[ℓ][i+1] )
+        du.x[ℓ][i] = -γ*n_adopt*G.x[ℓ][i] - β*(ℓ^-α)*g(n_adopt+R, ξ=ξ)*(gr_size-n_adopt)*G.x[ℓ][i]
+        n_adopt > 0 && ( du.x[ℓ][i] += β*(ℓ^-α)*g(n_adopt-1+R, ξ=ξ)*(gr_size-n_adopt+1)*G.x[ℓ][i-1])
+        n_adopt < gr_size && ( du.x[ℓ][i] +=  γ*(n_adopt+1)*G.x[ℓ][i+1] )
         # Group selection process
         ℓ > 1 && ( du.x[ℓ][i] += η*G.x[ℓ-1][i]*(Z[ℓ] / Z[ℓ-1] + μ) - η*G.x[ℓ][i]*(Z[ℓ-1] / Z[ℓ] + μ) )
         ℓ < L && ( du.x[ℓ][i] += η*G.x[ℓ+1][i]*(Z[ℓ] / Z[ℓ+1] + μ) - η*G.x[ℓ][i]*(Z[ℓ+1] / Z[ℓ] + μ) )
       end
 end
 
-@everywhere function run_source_sink2(p; L=L, perc_inf::Float64=0.001, lvl_1_inf::Bool=false)
-  n, M = 20, 1000000
+function run_source_sink2(p; perc_inf::Float64=0.001, lvl_1_inf::Bool=false)
+  n, M = 20, 10000
+  L = 4
   u₀ = initialize_u0(n=n, L=L, M=M, p=perc_inf, lvl_1_inf=lvl_1_inf)
 
-  tspan = (1, t_max)
+  tspan = (1.0, 10000)
   
   # Solve problem
   prob = OrdinaryDiffEq.ODEProblem(source_sink2!, u₀, tspan, p)
-  return OrdinaryDiffEq.solve(prob, OrdinaryDiffEq.Tsit5(), saveat = 0.1, reltol=1e-8, abstol=1e-8)
+  return OrdinaryDiffEq.solve(prob, OrdinaryDiffEq.DP5(), saveat = 1., reltol=1e-8, abstol=1e-8)
 end
-
-function get_fitness_evo(sol)
-  L = length(sol.u[1].x)
-  n = length(sol.u[1].x[1])
-  Z = [zeros(length(sol.t)) for _ in 1:L]
-  for i in 1:length(sol.t)
-    for ℓ in 1:L
-      Z[ℓ][i] = sum(exp.(b*[0:(n-1);] .- c*(ℓ-1)) .* sol.u[i].x[ℓ]) / sum(sol.u[i].x[ℓ])
-    end
-  end
-  return Z
-end
-
 
 function main()
   args = parse_commandline()
@@ -193,16 +182,15 @@ end
 
 # prototyping -------------------------------------------------------------------------------
 
-# Original model 
+# using LaTeXStrings
+# using Plots
 
 # params_name = "β", "ξ", "α", "γ", "ρ", "η", "b", "c", "μ"
 
 # lvl_1_inf = false
 # perc_inf = 0.001
 # p = [0.1, 1., 1., 1., 0.1, 0.05, -1, 1., 0.0001]  # β, ξ, α, γ, ρ, η, b, c, μ
-# L = 4
-# t_max = 10_000
-# sol = run_source_sink2(p, L=L, perc_inf = perc_inf, lvl_1_inf=lvl_1_inf)
+# sol = run_source_sink2(p, perc_inf = perc_inf, lvl_1_inf=lvl_1_inf)
 # res, res_prop = parse_sol(sol)
 # t_max = 9999
 
