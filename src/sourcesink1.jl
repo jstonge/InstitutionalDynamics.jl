@@ -25,10 +25,6 @@ function parse_commandline()
       arg_type = Float64
       default = 0.07
       help = "Spreading rate from non-adopter to adopter beta"
-      "-a"
-      arg_type = Float64
-      default = 0.5
-      help = "Negative benefits alpha"
       "-g"
       arg_type = Float64
       default = 1.

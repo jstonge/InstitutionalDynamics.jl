@@ -139,7 +139,7 @@ function dynamics!(du, u, p, t)
   end
 end
 
-function run_source_sink2(p; L::Int=4, t_max::Int=20000, perc_inf::Float64=p₀, lvl_1::Bool=false)
+function run_source_sink2(p; L::Int=4, t_max::Int=20000, perc_inf::Float64=0.0001, lvl_1::Bool=false)
   n, M = 20, 1000000
   u₀ = initial_cond(n=n, L=L, M=M, p=perc_inf, lvl_1=lvl_1)
   tspan = (1, t_max)

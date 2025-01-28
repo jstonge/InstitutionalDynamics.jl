@@ -1,9 +1,4 @@
-import Distributions
-import RecursiveArrayTools
-import OrdinaryDiffEq
-import ArgParse
-import SQLite
-import DataFrames
+using Distributions, RecursiveArrayTools, OrdinaryDiffEq, ArgParse, SQLite, DataFrames, Plots, ColorSchemes
 
 include("helpers.jl")
 
@@ -14,10 +9,10 @@ include("helpers.jl")
 Function for the commandline interface.
 """
 function parse_commandline()
-  s = ArgParse.ArgParseSettings()
+  s = ArgParseSettings()
 
   #!TODO: Update the params and defaults as needed.
-  ArgParse.@add_arg_table! s begin
+  @add_arg_table! s begin
       "--db"
       help = "Use Database to query parameters"
       "-L"
@@ -61,7 +56,7 @@ function parse_commandline()
       help = "Output file for results"
     end
 
-   return ArgParse.parse_args(s)
+   return parse_args(s)
 end
 
 """
@@ -73,24 +68,27 @@ function initialize_u0(;n::Int=20, L::Int=6, M::Int=20, p::Float64=0.01)
   G = zeros(L, n+1)
   for _ in 1:M
     ℓ = rand(1:L)
-    i = sum(rand(Distributions.Binomial(1, p), n))
+    i = sum(rand(Binomial(1, p), n))
     G[ℓ, i+1] += 1
   end
 
   G = G ./ M
 
-  return RecursiveArrayTools.ArrayPartition(Tuple([G[ℓ,:] for ℓ=1:L]))
+  return ArrayPartition(Tuple([G[ℓ,:] for ℓ=1:L]))
 end
 
 f(x; a1=3) = 1 / (1 + exp(-a1*x)) # individual incentive to cooperate given the (perceived) quality of the public good (∝ ℓ)
 s(x; a2=0.3) = a2 > 0 ? (1 - exp(-a2*x)) / (1 - exp(-a2)) : x # dependency of the (perceived) quality of the public good on institutional level
 h(x; a3=0.0) = exp(-a3*x) # rescaling to have a (decreasing) level-dependent benefit
 
-# Note 1: Since the difference between the payoff of a defector (D) and of a cooperator (C) is the same –one unit of "capital"– whatever the group size (n), its composition (i) and the quality of the public good (∝ ℓ),
-#         we conflate the imitation due to strategic learning (generating from individual return maximization) and the imitation due to pure peer-pressure
-#         modelling them via a unique constant rate, one for each strategic change (β: D –> C; γ: C –> D).
+# Note 1: Since the difference between the payoff of a defector (D) and of a cooperator (C) 
+#         is the same –one unit of "capital"– whatever the group size (n), its composition (i) and the quality of the public good (∝ ℓ);
+#         we conflate the imitation due to strategic learning (generating from individual return maximization) 
+#         and the imitation due to pure peer-pressure modelling them via a unique constant rate, 
+#         one for each strategic change (β: D –> C; γ: C –> D).
 # Note 2: In the following, we rescaled time by the rate associated to the institution-dependent individual incentive to cooperate f(...).
-# Note 3: The functions g (cost-benefits for groups) and g̃ (fitness function) are taken equal to function f. The three have similar properties.
+# Note 3: The functions g (cost-benefits for groups) and g̃ (fitness function) are taken equal to function f. 
+#         The three have similar properties.
 
 function source_sink3!(du, u, p, t)
   G, L, n = u, length(u.x), length(u.x[1])
@@ -107,15 +105,23 @@ function source_sink3!(du, u, p, t)
     end
 
     for ℓ = 1:L, i = 1:n
-      n_adopt, gr_size = i-1, n-1
+      # we separate indices from the meaning of the variables, 
+      # aka current_level (0,1,2,3) or #adopters vs. accessing Z[ℓ-1] or G.x[ℓ][i-1]
+      current_level, n_adopt, gsize = ℓ-1, i-1, n-1
       # Individual selection process
-      du.x[ℓ][i] = - α*n_adopt*f(1-s(ℓ-1))*G.x[ℓ][i] - α*(gr_size-n_adopt)*f(s(ℓ-1)-1)*G.x[ℓ][i]
-      du.x[ℓ][i] += - n_adopt*(gr_size-n_adopt)*(β+γ)*G.x[ℓ][i] - ρ*(gr_size-n_adopt)*β*R*G.x[ℓ][i] - ρ*n_adopt*γ*(gr_size-R)*G.x[ℓ][i]
-      n_adopt > 0 && ( du.x[ℓ][i] += α*(gr_size-n_adopt+1)*f(s(ℓ-1)-1)*G.x[ℓ][i-1] + β*(n_adopt-1+ρ*R)*(gr_size-n_adopt+1)*G.x[ℓ][i-1] )
-      n_adopt < gr_size && ( du.x[ℓ][i] += α*(n_adopt+1)*f(1-s(ℓ-1))*G.x[ℓ][i+1] + γ*(gr_size-n_adopt-1+ρ*(gr_size-R))*(n_adopt+1)*G.x[ℓ][i+1] )
+      du.x[ℓ][i] = - α*n_adopt*f(1-s(current_level))*G.x[ℓ][i] - α*(gsize-n_adopt)*f(s(current_level)-1)*G.x[ℓ][i]
+      du.x[ℓ][i] += - n_adopt*(gsize-n_adopt)*(β+γ)*G.x[ℓ][i] - ρ*(gsize-n_adopt)*β*R*G.x[ℓ][i] - ρ*n_adopt*γ*(gsize-R)*G.x[ℓ][i]
+      n_adopt > 0 && ( du.x[ℓ][i] += α*(gsize-n_adopt+1)*f(s(current_level)-1)*G.x[ℓ][i-1] + β*(n_adopt-1+ρ*R)*(gsize-n_adopt+1)*G.x[ℓ][i-1] )
+      n_adopt < gsize && ( du.x[ℓ][i] += α*(n_adopt+1)*f(1-s(current_level))*G.x[ℓ][i+1] + γ*(gsize-n_adopt-1+ρ*(gsize-R))*(n_adopt+1)*G.x[ℓ][i+1] )
       # Group selection process
-      ℓ > 1 && ( du.x[ℓ][i] += (f(b*h(ℓ-1)*n_adopt-c*(ℓ-1))^δ)*(μ+ρ*Z[ℓ]/Z[ℓ-1])*G.x[ℓ-1][i] - (μ*(f(c*(ℓ-1)-b*h(ℓ-1)*n_adopt)^δ) + ρ*Z[ℓ-1]/Z[ℓ])*G.x[ℓ][i] )
-      ℓ < L && ( du.x[ℓ][i] += (μ*(f(c*ℓ-b*h(ℓ)*n_adopt)^δ) + ρ*Z[ℓ]/Z[ℓ+1])*G.x[ℓ+1][i] - (f(b*h(ℓ)*n_adopt-c*ℓ)^δ)*(μ+ρ*Z[ℓ+1]/Z[ℓ])*G.x[ℓ][i] )
+      ℓ > 1 && ( 
+        du.x[ℓ][i] += (f(b*h(current_level)*n_adopt - current_level*c)^δ)*(μ + ρ*Z[ℓ]/Z[ℓ-1])*G.x[ℓ-1][i]
+                          - (μ*(f(current_level*c - b*h(current_level)*n_adopt)^δ) + ρ*Z[ℓ-1]/Z[ℓ])*G.x[ℓ][i] 
+            )
+      ℓ < L && ( 
+        du.x[ℓ][i] += (μ*(f(c*ℓ-b*h(ℓ)*n_adopt)^δ) + ρ*Z[ℓ]/Z[ℓ+1])*G.x[ℓ+1][i]
+                            - (f(b*h(ℓ)*n_adopt-c*ℓ)^δ)*(μ+ρ*Z[ℓ+1]/Z[ℓ])*G.x[ℓ][i] 
+            )
     end
 end
 
@@ -126,8 +132,8 @@ function run_source_sink3(p)
   tspan = (1.0, t_max)
 
   # Solve problem
-  prob = OrdinaryDiffEq.ODEProblem(source_sink3!, u₀, tspan, p)
-  return OrdinaryDiffEq.solve(prob, OrdinaryDiffEq.DP5(), saveat = 1., reltol=1e-8, abstol=1e-8)
+  prob = ODEProblem(source_sink3!, u₀, tspan, p)
+  return solve(prob, DP5(), saveat = 1., reltol=1e-8, abstol=1e-8)
 end
 
 function main()
@@ -186,42 +192,75 @@ end
 # # note 2: β/γ and ρ/μ decisive for dominance relations between levels
 # #      --> heatmap β/γ VS ρ/μ for fixed b/c?
 
-# n, M = 20, 1000
-# u₀ = initialize_u0(n=n, L=4, M=M, p=0.01)
-# t_max = 1000
-# tspan = (0., t_max)
+n, M = 20, 1000
+u₀ = initialize_u0(n=n, L=4, M=M, p=0.01)
+t_max = 1000
+tspan = (0., t_max)
 
-# h(x; a3=0.) = exp(-a3*x)
-# β, γ, ρ, b, c, μ = 0.02, 0.02, 0.02, 0.16, 1., 0.1
-# δ = 1
-# p  = [β, γ, ρ, b, c, μ, δ]
-# prob = OrdinaryDiffEq.ODEProblem(source_sink3_!, u₀, tspan, p)
-# sol = solve(prob, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
-# δ = 0
-# p  = [β, γ, ρ, b, c, μ, δ]
-# prob1 = ODEProblem(source_sink3!, u₀, tspan, p)
-# sol1 = solve(prob1, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
+h(x; a3=0.) = exp(-a3*x)
+β, γ, ρ, b, c, μ, α = 0.02, 0.02, 0.02, 0.16, 1., 0.1, 0.2
+δ = 1
+# β, γ, ρ, b, c, μ, δ, α
+p  = [β, γ, ρ, b, c, μ, δ, α]
+prob = ODEProblem(source_sink3!, u₀, tspan, p)
+sol = solve(prob, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
+δ = 0
+p  = [β, γ, ρ, b, c, μ, δ, α]
+prob1 = ODEProblem(source_sink3!, u₀, tspan, p)
+sol1 = solve(prob1, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
 
 # file should be there
-# inst_level, inst_level_prop = parse_sol(sol)  # params: β, γ, ρ, b, c, μ, δ
+inst_level, inst_level_prop = parse_sol(sol)  # params: β, γ, ρ, b, c, μ, δ
 
-# # temporal evolution
+# temporal evolution
+function plot_scatter(res::Dict, res_prop::Dict; plot_prop=false)
+  L = length(res)
+  tmax = length(res[L[1]])
+  if plot_prop
+    scatter(1:tmax, [res_prop[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
+          legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Blues][3:2:3*(L-1)],
+          markerstrokewidth = 0, markersize = 3.)
+  else 
+    scatter(1:length(res[1]), [res[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
+          legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Reds][3:2:3*(L-1)],
+          markerstrokewidth = 0, markersize = 3.)
+    global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:tmax]
+    plot!(1:tmax, global_freq, linestyle=:dash, color=:black, width = 1.5, label = "global") 
+  end
+end
 
-# function plot_scatter(res::Dict, res_prop::Dict; plot_prop=false)
-#   L = length(res)
-#   tmax = length(res[L[1]])
-#   if plot_prop
-#     scatter(1:tmax, [res_prop[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
-#           legend=:outertopright, labels = collect(1:L)', palette = palette(:Blues)[3:2:3*(L-1)],
-#           markerstrokewidth = 0, markersize = 3.)
-#   else 
-#     scatter(1:length(res[1]), [res[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
-#           legend=:outertopright, labels = collect(1:L)', palette = palette(:Reds)[3:2:3*(L-1)],
-#           markerstrokewidth = 0, markersize = 3.)
-#     global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:tmax]
-#     plot!(1:tmax, global_freq, linestyle=:dash, color=:black, width = 1.5, label = "global") 
-#   end
-# end
+# plot results
+plot_scatter(inst_level, inst_level_prop)
+plot_scatter(inst_level, inst_level_prop, plot_prop = true)
 
-# plot_scatter(inst_level, inst_level_prop)
-# plot_scatter(inst_level, inst_level_prop, plot_prop = true)
+# plotting s()
+plot(ℓ -> s(ℓ), 0, 3,  label="a2=0.3")
+plot(ℓ -> s(ℓ, a2=0.1), 0, 3, label="a2=0.1")
+plot!(ℓ -> s(ℓ, a2=0.5), 0, 3, label="a2=0.5")
+
+# plotting f()
+plot(ℓ -> 1 / (1 + exp(-3*(1-s(ℓ, a2=0.1)))), 0, 3, label="a1=3")
+plot!(ℓ -> 1 / (1 + exp(-3*(1-s(ℓ, a2=0.5)))), 0, 3, label="a1=3")
+ylabel!("cost")
+
+# plotting f()
+plot(ℓ -> f(1 - s(ℓ)), 0, 3, label="a1=3")
+plot!(ℓ -> f(1 - s(ℓ), a1=0), 0, 3, label="a1=0", ls=:dash)
+plot!(ℓ -> f(1 - s(ℓ), a1=1), 0, 3, label="a1=1")
+plot!(ℓ -> f(1 - s(ℓ), a1=5), 0, 3, label="a1=5")
+title!("Coop given (perceived) quality of the\nPG (a2 fixed at 0.3)")
+ylabel!("low   ⇐    cost    ⇒    high")
+xlabel!("Institutional strength")
+ylims!(0,1)
+annotate!(2.5, 0.55, "line of indifference", color = :blue)
+
+
+plot(ℓ -> f(1 - s(ℓ, a2=0.1)), 0, 3, label="a1=3")
+plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=0), 0, 3, label="a1=0", ls=:dash)
+plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=1), 0, 3, label="a1=1")
+plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=5), 0, 3, label="a1=5")
+title!("Coop given (perceived) quality of the\nPG (a2 fixed at 0.1)")
+ylabel!("low   ⇐    cost    ⇒    high")
+xlabel!("Institutional strength")
+ylims!(0,1)
+annotate!(2.5, 0.55, "line of indifference", color = :blue)
