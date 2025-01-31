@@ -9,7 +9,6 @@ import Plots
 include("sourcesink1.jl")
 include("sourcesink2.jl")
 include("sourcesink3.jl")
-include("p_free_riding.jl")
 
 
 function sourcesink_m(;β=0.07, γ=1., ρ=.1, b=.18, c=1.05, μ=.0001)

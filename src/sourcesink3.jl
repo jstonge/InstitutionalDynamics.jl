@@ -192,75 +192,75 @@ end
 # # note 2: β/γ and ρ/μ decisive for dominance relations between levels
 # #      --> heatmap β/γ VS ρ/μ for fixed b/c?
 
-n, M = 20, 1000
-u₀ = initialize_u0(n=n, L=4, M=M, p=0.01)
-t_max = 1000
-tspan = (0., t_max)
+# n, M = 20, 1000
+# u₀ = initialize_u0(n=n, L=4, M=M, p=0.01)
+# t_max = 1000
+# tspan = (0., t_max)
 
-h(x; a3=0.) = exp(-a3*x)
-β, γ, ρ, b, c, μ, α = 0.02, 0.02, 0.02, 0.16, 1., 0.1, 0.2
-δ = 1
-# β, γ, ρ, b, c, μ, δ, α
-p  = [β, γ, ρ, b, c, μ, δ, α]
-prob = ODEProblem(source_sink3!, u₀, tspan, p)
-sol = solve(prob, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
-δ = 0
-p  = [β, γ, ρ, b, c, μ, δ, α]
-prob1 = ODEProblem(source_sink3!, u₀, tspan, p)
-sol1 = solve(prob1, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
+# h(x; a3=0.) = exp(-a3*x)
+# β, γ, ρ, b, c, μ, α = 0.02, 0.02, 0.02, 0.16, 1., 0.1, 0.2
+# δ = 1
+# # β, γ, ρ, b, c, μ, δ, α
+# p  = [β, γ, ρ, b, c, μ, δ, α]
+# prob = ODEProblem(source_sink3!, u₀, tspan, p)
+# sol = solve(prob, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
+# δ = 0
+# p  = [β, γ, ρ, b, c, μ, δ, α]
+# prob1 = ODEProblem(source_sink3!, u₀, tspan, p)
+# sol1 = solve(prob1, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
 
-# file should be there
-inst_level, inst_level_prop = parse_sol(sol)  # params: β, γ, ρ, b, c, μ, δ
+# # file should be there
+# inst_level, inst_level_prop = parse_sol(sol)  # params: β, γ, ρ, b, c, μ, δ
 
-# temporal evolution
-function plot_scatter(res::Dict, res_prop::Dict; plot_prop=false)
-  L = length(res)
-  tmax = length(res[L[1]])
-  if plot_prop
-    scatter(1:tmax, [res_prop[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
-          legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Blues][3:2:3*(L-1)],
-          markerstrokewidth = 0, markersize = 3.)
-  else 
-    scatter(1:length(res[1]), [res[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
-          legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Reds][3:2:3*(L-1)],
-          markerstrokewidth = 0, markersize = 3.)
-    global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:tmax]
-    plot!(1:tmax, global_freq, linestyle=:dash, color=:black, width = 1.5, label = "global") 
-  end
-end
+# # temporal evolution
+# function plot_scatter(res::Dict, res_prop::Dict; plot_prop=false)
+#   L = length(res)
+#   tmax = length(res[L[1]])
+#   if plot_prop
+#     scatter(1:tmax, [res_prop[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
+#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Blues][3:2:3*(L-1)],
+#           markerstrokewidth = 0, markersize = 3.)
+#   else 
+#     scatter(1:length(res[1]), [res[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
+#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Reds][3:2:3*(L-1)],
+#           markerstrokewidth = 0, markersize = 3.)
+#     global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:tmax]
+#     plot!(1:tmax, global_freq, linestyle=:dash, color=:black, width = 1.5, label = "global") 
+#   end
+# end
 
-# plot results
-plot_scatter(inst_level, inst_level_prop)
-plot_scatter(inst_level, inst_level_prop, plot_prop = true)
+# # plot results
+# plot_scatter(inst_level, inst_level_prop)
+# plot_scatter(inst_level, inst_level_prop, plot_prop = true)
 
-# plotting s()
-plot(ℓ -> s(ℓ), 0, 3,  label="a2=0.3")
-plot(ℓ -> s(ℓ, a2=0.1), 0, 3, label="a2=0.1")
-plot!(ℓ -> s(ℓ, a2=0.5), 0, 3, label="a2=0.5")
+# # plotting s()
+# plot(ℓ -> s(ℓ), 0, 3,  label="a2=0.3")
+# plot(ℓ -> s(ℓ, a2=0.1), 0, 3, label="a2=0.1")
+# plot!(ℓ -> s(ℓ, a2=0.5), 0, 3, label="a2=0.5")
 
-# plotting f()
-plot(ℓ -> 1 / (1 + exp(-3*(1-s(ℓ, a2=0.1)))), 0, 3, label="a1=3")
-plot!(ℓ -> 1 / (1 + exp(-3*(1-s(ℓ, a2=0.5)))), 0, 3, label="a1=3")
-ylabel!("cost")
+# # plotting f()
+# plot(ℓ -> 1 / (1 + exp(-3*(1-s(ℓ, a2=0.1)))), 0, 3, label="a1=3")
+# plot!(ℓ -> 1 / (1 + exp(-3*(1-s(ℓ, a2=0.5)))), 0, 3, label="a1=3")
+# ylabel!("cost")
 
-# plotting f()
-plot(ℓ -> f(1 - s(ℓ)), 0, 3, label="a1=3")
-plot!(ℓ -> f(1 - s(ℓ), a1=0), 0, 3, label="a1=0", ls=:dash)
-plot!(ℓ -> f(1 - s(ℓ), a1=1), 0, 3, label="a1=1")
-plot!(ℓ -> f(1 - s(ℓ), a1=5), 0, 3, label="a1=5")
-title!("Coop given (perceived) quality of the\nPG (a2 fixed at 0.3)")
-ylabel!("low   ⇐    cost    ⇒    high")
-xlabel!("Institutional strength")
-ylims!(0,1)
-annotate!(2.5, 0.55, "line of indifference", color = :blue)
+# # plotting f()
+# plot(ℓ -> f(1 - s(ℓ)), 0, 3, label="a1=3")
+# plot!(ℓ -> f(1 - s(ℓ), a1=0), 0, 3, label="a1=0", ls=:dash)
+# plot!(ℓ -> f(1 - s(ℓ), a1=1), 0, 3, label="a1=1")
+# plot!(ℓ -> f(1 - s(ℓ), a1=5), 0, 3, label="a1=5")
+# title!("Coop given (perceived) quality of the\nPG (a2 fixed at 0.3)")
+# ylabel!("low   ⇐    cost    ⇒    high")
+# xlabel!("Institutional strength")
+# ylims!(0,1)
+# annotate!(2.5, 0.55, "line of indifference", color = :blue)
 
 
-plot(ℓ -> f(1 - s(ℓ, a2=0.1)), 0, 3, label="a1=3")
-plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=0), 0, 3, label="a1=0", ls=:dash)
-plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=1), 0, 3, label="a1=1")
-plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=5), 0, 3, label="a1=5")
-title!("Coop given (perceived) quality of the\nPG (a2 fixed at 0.1)")
-ylabel!("low   ⇐    cost    ⇒    high")
-xlabel!("Institutional strength")
-ylims!(0,1)
-annotate!(2.5, 0.55, "line of indifference", color = :blue)
+# plot(ℓ -> f(1 - s(ℓ, a2=0.1)), 0, 3, label="a1=3")
+# plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=0), 0, 3, label="a1=0", ls=:dash)
+# plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=1), 0, 3, label="a1=1")
+# plot!(ℓ -> f(1 - s(ℓ, a2=0.1), a1=5), 0, 3, label="a1=5")
+# title!("Coop given (perceived) quality of the\nPG (a2 fixed at 0.1)")
+# ylabel!("low   ⇐    cost    ⇒    high")
+# xlabel!("Institutional strength")
+# ylims!(0,1)
+# annotate!(2.5, 0.55, "line of indifference", color = :blue)
