@@ -1,3 +1,5 @@
+using Printf
+
 function parse_sol(s)
   L = length(s.u[1].x)
   tmax = length(s)-1
@@ -26,14 +28,19 @@ write_sol2txt(path, sol)
 Function to write solution to textfile. Nothing to do here.
 """
 function write_sol2txt(path, sol)
-    L = length(sol.u[1].x)
-    open(path, "a") do io
-        for t=1:length(sol.u), ℓ=1:L
-            for val in sol.u[t].x[ℓ]
-                write(io, "$(t) $(ℓ) $(round(val, digits=14))\n")
-            end
-        end
-    end
+  L = length(sol.u[1].x)
+  open(path, "w") do io  # Use "w" to overwrite instead of appending
+      for t in 1:length(sol.u)
+          for ℓ in 1:L
+              for val in sol.u[t].x[ℓ]
+                if val < 0 || val > 1
+                  println("$(path), $(val)")
+                end
+                @printf(io, "%d %d %.14f\n", t, ℓ, val)
+              end
+          end
+      end
+  end
 end
 
 unzip(a) = map(x->getfield.(a, x), fieldnames(eltype(a)))

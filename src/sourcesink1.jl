@@ -99,7 +99,7 @@ end
 
 function run_source_sink(p)
   n, M = 20, 1000
-  u₀ = initialize_u0(n=n, L=6, M=M, p=0.05)
+  u₀ = initialize_u0(n=n, L=5, M=M, p=0.05)
   tspan = (1.0, 4000)
   prob = OrdinaryDiffEq.ODEProblem(source_sink!, u₀, tspan, p)
   

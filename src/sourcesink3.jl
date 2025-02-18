@@ -127,7 +127,7 @@ end
 
 function run_source_sink3(p)
   n, M = 20, 1000
-  u₀ = initialize_u0(n=n, L=4, M=M, p=0.01)
+  u₀ = initialize_u0(n=n, L=5, M=M, p=0.01)
   t_max = 2000
   tspan = (1.0, t_max)
 
@@ -198,18 +198,17 @@ end
 # tspan = (0., t_max)
 
 # h(x; a3=0.) = exp(-a3*x)
-# β, γ, ρ, b, c, μ, α = 0.02, 0.02, 0.02, 0.16, 1., 0.1, 0.2
-# δ = 1
-# # β, γ, ρ, b, c, μ, δ, α
+# # β, γ, ρ, b, c, μ, α = 0.02, 0.02, 0.02, 0.16, 1., 0.1, 0.2
+# β, γ, ρ, b, c, μ, α, δ = 0.2, 0.05, 0., 0.2, 1., 0.06, 0.2, 1
 # p  = [β, γ, ρ, b, c, μ, δ, α]
 # prob = ODEProblem(source_sink3!, u₀, tspan, p)
-# sol = solve(prob, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
+# sol = solve(prob, Tsit5(), saveat=1, reltol=1e-12, abstol=1e-12)
+
 # δ = 0
 # p  = [β, γ, ρ, b, c, μ, δ, α]
 # prob1 = ODEProblem(source_sink3!, u₀, tspan, p)
 # sol1 = solve(prob1, DP5(), saveat=1, reltol=1e-8, abstol=1e-8)
 
-# # file should be there
 # inst_level, inst_level_prop = parse_sol(sol)  # params: β, γ, ρ, b, c, μ, δ
 
 # # temporal evolution
@@ -218,11 +217,11 @@ end
 #   tmax = length(res[L[1]])
 #   if plot_prop
 #     scatter(1:tmax, [res_prop[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
-#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Blues][3:2:3*(L-1)],
+#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Blues][3:9],
 #           markerstrokewidth = 0, markersize = 3.)
 #   else 
 #     scatter(1:length(res[1]), [res[i] for i in 1:L], xaxis=:log, legendtitle= "level", 
-#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Reds][3:2:3*(L-1)],
+#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Reds][3:9],
 #           markerstrokewidth = 0, markersize = 3.)
 #     global_freq = [sum([res[ℓ][t]*res_prop[ℓ][t] for ℓ in 1:L]) for t in 1:tmax]
 #     plot!(1:tmax, global_freq, linestyle=:dash, color=:black, width = 1.5, label = "global") 
@@ -230,8 +229,10 @@ end
 # end
 
 # # plot results
-# plot_scatter(inst_level, inst_level_prop)
-# plot_scatter(inst_level, inst_level_prop, plot_prop = true)
+# plot(
+#   plot_scatter(inst_level, inst_level_prop),
+#   plot_scatter(inst_level, inst_level_prop, plot_prop = true), 
+#   layout=(2,1), size=(800,800))
 
 # # plotting s()
 # plot(ℓ -> s(ℓ), 0, 3,  label="a2=0.3")
@@ -264,3 +265,25 @@ end
 # xlabel!("Institutional strength")
 # ylims!(0,1)
 # annotate!(2.5, 0.55, "line of indifference", color = :blue)
+
+
+###########################
+# test reading from sweep #
+###########################
+#
+# fsol = CSV.read("sourcesink3_0.04_0.04_0.09_0.26_1.0_0.1_1.0_0.15.txt", DataFrame; header=["timestep", "L", "value"], 
+#                    types=Dict(:timestep => Int, :L => Int, :value => Float32))
+# gd = groupby(fsol, [:timestep, :L])
+# n = nrow(gd[1])
+    
+# process functions
+# processing1(x, n) = round(sum((collect(0:(n-1)) / n) .* x) / sum(x), digits=7)
+
+# df_agg = combine(gd, :value => (x -> round(sum(x), digits=7)) => :value_prop, 
+#                      :value => (x -> iszero(sum(x)) ? 0.0 : processing1(x,n)) => :value)
+
+# scatter(1:maximum(df_agg.timestep), [filter(:L => x -> x ==  i, df_agg).value_prop for i in 1:L], xaxis=:log, legendtitle= "level", 
+#           legend=:outertopright, labels = collect(1:L)', palette = colorschemes[:Blues][3:9],
+#           markerstrokewidth = 0, markersize = 3.)
+#
+###########################
